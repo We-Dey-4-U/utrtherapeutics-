@@ -25,7 +25,7 @@ const Footer = () => {
                 project's tokens before the main ICO.
               </p>
               <form action="#">
-                <input type="text" placeholder="coindox@gmail.com" />
+                <input type="text" placeholder="utr@gmail.com" />
                 <button>
                   <IoIosSend />
                 </button>
@@ -79,7 +79,7 @@ const Footer = () => {
         <div class="footer__bottom ul_li_between mt-50">
           <div class="footer__logo mt-20">
             <a href="index.html">
-              <img src="assets/img/logo/logo.svg" alt="" />
+              <img src="assets/img/logo/utrlogo.png" alt="" />
             </a>
           </div>
           <ul class="footer__social ul_li mt-20">

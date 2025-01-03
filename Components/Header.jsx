@@ -62,7 +62,7 @@ const Header = ({
                     src="assets/img/logo/utrlogo.png"
                     alt="Logo"
                     style={{
-                      height: "60px",
+                      height: "40px",
                       width: "auto",
                       objectFit: "contain",
                     }}
