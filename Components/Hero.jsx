@@ -100,9 +100,9 @@ const Hero = ({
                   />
                 </div>
                 <ul className="ul_li_between">
-                  <li>Pre Sell</li>
+                  <li>Presale</li>
                   <li>Soft Cap</li>
-                  <li>Bonus</li>
+                  <li>HardCap</li>
                 </ul>
               </div>
             </div>

@@ -16,7 +16,6 @@ const Header = ({
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       setIsMetaMaskInstalled(true);
-
       window.ethereum.on("accountsChanged", handleAccountsChanged);
     }
 
@@ -59,7 +58,15 @@ const Header = ({
             <div className="header__left ul_li">
               <div className="header__logo">
                 <a href="/">
-                  <img src="assets/img/logo/logo.svg" alt="" />
+                  <img
+                    src="assets/img/logo/utrlogo.png"
+                    alt="Logo"
+                    style={{
+                      height: "60px",
+                      width: "auto",
+                      objectFit: "contain",
+                    }}
+                  />
                 </a>
               </div>
             </div>
@@ -71,7 +78,7 @@ const Header = ({
                   </li>
                   <li>
                     <a className="scrollspy-btn" href="#about">
-                      about
+                      About
                     </a>
                   </li>
                   <li>
@@ -86,7 +93,7 @@ const Header = ({
                   </li>
                   <li>
                     <a className="scrollspy-btn" href="#faq">
-                      Faq
+                      FAQ
                     </a>
                   </li>
                   <li>

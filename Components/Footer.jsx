@@ -115,7 +115,7 @@ const Footer = () => {
         <div class="container">
           <div class="footer__copyright-inner ul_li_between">
             <div class="footer__copyright-text mt-15">
-              Copyright © 2024 @UTR Therapeutics Inc. All rights reserved.
+              Copyright © 2025 @UTR Therapeutics Inc. All rights reserved.
             </div>
             <ul class="footer__links ul_li_right mt-15">
               <li>
