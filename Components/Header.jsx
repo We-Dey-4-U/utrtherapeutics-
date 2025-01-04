@@ -59,10 +59,10 @@ const Header = ({
               <div className="header__logo">
                 <a href="/">
                   <img
-                    src="assets/img/logo/utrlogo.png"
+                    src="assets/img/logo/inox22.png"
                     alt="Logo"
                     style={{
-                      height: "40px",
+                      height: "80px",
                       width: "auto",
                       objectFit: "contain",
                     }}
