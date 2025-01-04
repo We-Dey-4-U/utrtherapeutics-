@@ -25,7 +25,7 @@ const Footer = () => {
                 project's tokens before the main ICO.
               </p>
               <form action="#">
-                <input type="text" placeholder="utr@gmail.com" />
+                <input type="text" placeholder="inxhealthcare@gmail.com" />
                 <button>
                   <IoIosSend />
                 </button>
