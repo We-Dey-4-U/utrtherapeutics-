@@ -1,5 +1,6 @@
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 import axios from "axios";
 
 //IMPORT CONTRACT ABI
@@ -134,25 +135,47 @@ export const CHECK_WALLET_CONNECTED = async () => {
 export const CONNECT_WALLET = async () => {
   try {
     if (!window.ethereum) return alert("Please install MetaMask");
-    const network = await handleNetworkSwitch();
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
+    const web3Modal = new Web3Modal({
+      cacheProvider: true,
+      providerOptions: {
+        walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+            infuraId: "7f84a0a53e32410b9c17d6165505058d", // Replace with your Infura project ID
+          },
+        },
+      },
     });
-    window.location.reload();
+
+    const connection = await web3Modal.connect();
+    const provider = new ethers.providers.Web3Provider(connection);
+    const accounts = await provider.listAccounts();
     return accounts[0];
   } catch (error) {
     console.log(error);
   }
 };
-
 //---FETCHING SMART CONTRACT
 
 const fetchContract = (address, abi, signer) =>
   new ethers.Contract(address, abi, signer);
 
+
+
 export const TOKEN_ICO_CONTRACT = async () => {
   try {
-    const web3Modal = new Web3Modal();
+    const web3Modal = new Web3Modal({
+      cacheProvider: true,
+      providerOptions: {
+        walletconnect: {
+          package: WalletConnectProvider,
+          options: {
+            infuraId: "7f84a0a53e32410b9c17d6165505058d", // Replace with your Infura project ID
+          },
+        },
+      },
+    });
+
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
@@ -160,9 +183,13 @@ export const TOKEN_ICO_CONTRACT = async () => {
     const contract = fetchContract(CONTRACT_ADDRESS, CONTRACT_ABI, signer);
     return contract;
   } catch (error) {
-    console.log("Something went wrong while connecting with contract", error);
+    console.log("Error connecting with contract", error);
   }
 };
+
+
+
+
 
 export const ERC20 = async (ADDRESS) => {
   try {
