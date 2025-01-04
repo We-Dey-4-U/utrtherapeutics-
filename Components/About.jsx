@@ -19,42 +19,38 @@ const About = () => {
               data-wow-delay="100ms"
             >
               <div className="sec-title mb-35">
-                <h5 className="sec-title__subtitle">WHAT IS ICO CRYPTO</h5>
+                <h5 className="sec-title__subtitle">WHAT IS InnovX (INX)</h5>
                 <h2 className="sec-title__title mb-25">
-                  Invest in our popular ICO and become part of the future of
-                  digital finance.
+                  Empowering Global Health through Innovation and Blockchain.
                 </h2>
                 <p>
-                  In an ICO, a project or startup issues a new digital token,
-                  typically based on a blockchain platform such as Ethereum.
-                  These tokens serve a specific purpose within the project's
-                  ecosystem, such as accessing services
+                  InnovX (INX) is a decentralized token designed to revolutionize the world of medical research and healthcare. By leveraging the power of blockchain technology, AI collaboration, and tokenized incentives, InnovX aims to accelerate medical advancements, support clinical trials, and drive global health solutions. Our mission is to unite the global community in the fight against all diseases, ensuring access to innovative treatments and breakthroughs for everyone.
                 </p>
               </div>
               <ul className="about__list ul_li">
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Decentralized Platform
+                  Decentralized Medical Research Funding
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Rewards Meachanism
+                  AI-Driven Health Innovation Collaboration
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Crowd Wisdom
+                  Tokenized Patient Support and Reward Systems
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Investor Protection
+                  Blockchain-Based Clinical Trial Transparency
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Token Sale Phases
+                  Community Governance in Healthcare Decisions
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Exchange Listing
+                  Global Health Market Access with InnovX Token
                 </li>
               </ul>
             </div>
