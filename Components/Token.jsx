@@ -2,21 +2,21 @@ import React from "react";
 
 const Token = () => {
   return (
-    <section class="token pt-125">
-      <div class="container">
-        <div class="row align-items-center mt-none-30">
-          <div class="col-lg-5 mt-30">
-            <div class="token__content wow fadeInLeft">
-              <div class="sec-title mb-20">
-                <h5 class="sec-title__subtitle">Tokenomics</h5>
-                <h2 class="sec-title__title">
-                  Token allocation & funds distribution
+    <section className="token pt-125">
+      <div className="container">
+        <div className="row align-items-center mt-none-30">
+          <div className="col-lg-5 mt-30">
+            <div className="token__content wow fadeInLeft">
+              <div className="sec-title mb-20">
+                <h5 className="sec-title__subtitle">Tokenomics</h5>
+                <h2 className="sec-title__title">
+                  Allocation of Tokens & Distribution of Funds
                 </h2>
               </div>
-              <ul class="nav nav-tabs token__tab" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+              <ul className="nav nav-tabs token__tab" id="myTab" role="tablist">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link active"
+                    className="nav-link active"
                     id="home-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#home"
@@ -25,12 +25,12 @@ const Token = () => {
                     aria-controls="home"
                     aria-selected="true"
                   >
-                    Funding Allocation
+                    Fund Allocation
                   </button>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li className="nav-item" role="presentation">
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="profile-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#profile"
@@ -39,48 +39,48 @@ const Token = () => {
                     aria-controls="profile"
                     aria-selected="false"
                   >
-                    Token Allocation
+                    Token Distribution
                   </button>
                 </li>
               </ul>
-              <div class="token__info mt-40">
-                <h2>1 UTR = 0.00001 BTC</h2>
+              <div className="token__info mt-40">
+                <h2>1 INX = 0.00001 BTC</h2>
                 <p>
-                  A portion of the UTR total token supply is often allocated as
-                  reserved <br />
-                  tokens. These tokens are set aside for the development
+                  A percentage of the total INX token supply is designated as
+                  reserve tokens, which are reserved for strategic <br />
+                  development purposes, ensuring the growth and sustainability of the project.
                 </p>
-                <div class="token-btn mt-40">
-                  <a class="thm-btn" href="#!">
-                    buy now
+                <div className="token-btn mt-40">
+                  <a className="thm-btn" href="#!">
+                    Buy Now
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-lg-7 mt-30">
+          <div className="col-lg-7 mt-30">
             <div
-              class="tab-content wow fadeInRight"
+              className="tab-content wow fadeInRight"
               data-wow-delay="100ms"
               id="myTabContent"
             >
               <div
-                class="tab-pane fade show active"
+                className="tab-pane fade show active"
                 id="home"
                 role="tabpanel"
                 aria-labelledby="home-tab"
               >
-                <div class="token__img">
+                <div className="token__img">
                   <img src="assets/img/token/token_chart.png" alt="" />
                 </div>
               </div>
               <div
-                class="tab-pane fade"
+                className="tab-pane fade"
                 id="profile"
                 role="tabpanel"
                 aria-labelledby="profile-tab"
               >
-                <div class="token__img">
+                <div className="token__img">
                   <img src="assets/img/token/token_chart2.png" alt="" />
                 </div>
               </div>

@@ -7,9 +7,9 @@ const TokenInfo = ({ detail, currency }) => {
         <div className="row">
           <div className="col-xl-8 offset-xl-4">
             <div className="token-info__title sec-title mb-95 text-center text-xl-start">
-              <h5 className="sec-title__subtitle">ICO UTR Token</h5>
+              <h5 className="sec-title__subtitle">ICO INX Token</h5>
               <h2 className="sec-title__title">
-                ICO Tokens <br />
+                INX Token <br />
                 Details and Sale
               </h2>
             </div>
@@ -25,15 +25,14 @@ const TokenInfo = ({ detail, currency }) => {
             <div className="token-info--info-wrap ul_li">
               <ul className="token-info__list token-info--start">
                 <li>
-                  <h4>Total Supply </h4>
+                  <h4>Total Supply</h4>
                   <span>
                     {detail?.supply} {detail?.symbol}
                   </span>
                 </li>
                 <li>
-                  <h4>Sold Token</h4>
+                  <h4>Sold Tokens</h4>
                   <span>
-                    {" "}
                     {Number(detail?.soldTokens)} {detail?.symbol}
                   </span>
                 </li>
@@ -46,20 +45,17 @@ const TokenInfo = ({ detail, currency }) => {
                 <li>
                   <h4>Token Market Value</h4>
                   <span>
-                    {" "}
-                    {Number(detail?.supply) * Number(detail?.tokenPrice)}
-                    {currency}
+                    {Number(detail?.supply) * Number(detail?.tokenPrice)} {currency}
                   </span>
                 </li>
                 <li>
                   <h4>Fund Raised</h4>
                   <span>
-                    {Number(detail?.soldTokens) * Number(detail?.tokenPrice)}{" "}
-                    {currency}
+                    {Number(detail?.soldTokens) * Number(detail?.tokenPrice)} {currency}
                   </span>
                 </li>
                 <li>
-                  <h4>Acceptable currencies</h4>
+                  <h4>Acceptable Currencies</h4>
                   <span>ETH, BTC, LTC</span>
                 </li>
               </ul>

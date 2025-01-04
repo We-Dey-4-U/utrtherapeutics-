@@ -50,7 +50,6 @@ const Hero = ({
     notifySuccess(response);
   };
 
-  
   return (
     <section className="hero hero__ico pos-rel">
       <div className="hero__bg" data-background="assets/img/bg/hero_bg.png" />
@@ -59,16 +58,16 @@ const Hero = ({
           <div className="col-lg-7">
             <div className="hero__content">
               <h1 className="title mb-45">
-                Participate in the <span>Ongoing ICO Token</span> Sale
+                Join the <span>Ongoing INX Token</span> ICO Sale
               </h1>
               <div className="btns">
                 {account ? (
                   <a className="thm-btn" onClick={() => setBuyModel(true)}>
-                    PURCHASE TOKEN
+                    Purchase INX Tokens
                   </a>
                 ) : (
                   <a className="thm-btn" onClick={() => connectWallet()}>
-                    Connect Wallet
+                    Connect Your Wallet
                   </a>
                 )}
 
@@ -76,16 +75,16 @@ const Hero = ({
                   className="thm-btn thm-btn--dark"
                   onClick={() => ADD_TOKEN_METAMASK()}
                 >
-                  Add Token MetaMask
+                  Add INX Token to MetaMask
                 </a>
               </div>
               <div className="hero__progress mt-50">
                 <div className="progress-title ul_li_between">
                   <span>
-                    <span>Raised -</span> {detail?.soldTokens} Tokens
+                    <span>Amount Raised -</span> {detail?.soldTokens} Tokens
                   </span>
                   <span>
-                    <span>Total ICO -</span>{" "}
+                    <span>Total ICO Supply -</span>{" "}
                     {detail?.soldTokens + Number(detail?.tokenBal)}{" "}
                     {detail?.symbol}
                   </span>
@@ -102,7 +101,7 @@ const Hero = ({
                 <ul className="ul_li_between">
                   <li>Presale</li>
                   <li>Soft Cap</li>
-                  <li>HardCap</li>
+                  <li>Hard Cap</li>
                 </ul>
               </div>
             </div>
@@ -111,10 +110,10 @@ const Hero = ({
             <div className="hero__explore-wrap text-center">
               <div className="hero__explore text-center">
                 <div className="scroll-down" />
-                <span>Explore Causes</span>
+                <span>Explore the Opportunities</span>
               </div>
               <div className="hero__countdown">
-                <h6 className="text-center">ICO Will Start in..</h6>
+                <h6 className="text-center">ICO Launch Countdown</h6>
               </div>
             </div>
           </div>
