@@ -16,11 +16,19 @@ const TokenInfo = ({ detail, currency }) => {
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-4">
-            <div className="token-info__img">
-              <img src="assets/img/token/t_info_img.png" alt="" />
-            </div>
-          </div>
+        <div className="col-lg-4">
+  <div className="token-info__img">
+    <img
+      src="assets/img/token/t_info_img2.png"
+      alt=""
+      style={{
+        width: "100%",
+        height: "auto", // Maintain aspect ratio
+        maxWidth: "500px", // Adjust as needed for maximum size
+      }}
+    />
+  </div>
+</div>
           <div className="col-lg-8">
             <div className="token-info--info-wrap ul_li">
               <ul className="token-info__list token-info--start">
