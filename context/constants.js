@@ -5,8 +5,9 @@ import axios from "axios";
 //IMPORT CONTRACT ABI
 import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
-
-export const TOKEN_ADDRESS = "0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C";
+//inx token address 0x45762e0070F9F18E78F57e859d020324c90f0F6C
+//utr oken addresss 0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C
+export const TOKEN_ADDRESS = "0x45762e0070F9F18E78F57e859d020324c90f0F6C";
 export const ERC20_ABI = erc20.abi;
 
 export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
