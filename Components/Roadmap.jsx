@@ -53,7 +53,7 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_03.svg" alt="" />
               </div>
-              <h3>Pre-Listing</h3>
+              <h3>Expansion </h3>
             </div>
             <ul className="roadmap__info list-unstyled">
               <li>Marketplace Launch</li>
@@ -76,7 +76,7 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_04.svg" alt="" />
               </div>
-              <h3>Token Launch</h3>
+              <h3>Growth</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
               <li>Ecosystem Optimization</li>
@@ -95,17 +95,17 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_01.svg" alt="" />
               </div>
-              <h3>Alpha Test</h3>
+              <h3> Global</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
               <li>
               Global Standardization <br />
               Autonomous Funding 
               </li>
-              <li>AI-Powered Insightst</li>
+              <li>AI-Powered Insights</li>
               <li>
-              Access for Innovation <br />
-              Impact Measurement
+              Open Access <br />
+              Impact Metrics
               </li>
             </ul>
             <span className="number">
