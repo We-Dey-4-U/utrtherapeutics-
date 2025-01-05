@@ -20,10 +20,10 @@ const Roadmap = () => {
               <h3>Project Plan</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Website Design</li>
-              <li>Website Live</li>
-              <li>Smart Contract</li>
-              <li>Deployment</li>
+              <li>Platform Development</li>
+              <li>Token Launch</li>
+              <li>Initial Funding</li>
+              <li>Community Buildingt</li>
             </ul>
             <span className="number">
               Q1 <br />
@@ -35,13 +35,13 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_02.svg" alt="" />
               </div>
-              <h3>Presale</h3>
+              <h3>AI Clinical Trial </h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Contract Testing</li>
-              <li>Project Prototype</li>
-              <li>Metaverse Demo</li>
-              <li>(Alpha)</li>
+              <li>AI Partnerships</li>
+              <li>Clinical Trial Platform</li>
+              <li>Patient Support Expansion</li>
+              <li>Governance Features</li>
             </ul>
             <span className="number">
               Q2 <br />
@@ -56,14 +56,14 @@ const Roadmap = () => {
               <h3>Pre-Listing</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Partnerships</li>
+              <li>Marketplace Launch</li>
               <li>
-                Marketing to reach <br />
-                wider Audiences
+              Global Collaboration <br />
+              Research Grants 
               </li>
               <li>
-                Metaverse <br />
-                Development
+              NFT Campaigns <br />
+               
               </li>
             </ul>
             <span className="number">
@@ -79,10 +79,11 @@ const Roadmap = () => {
               <h3>Token Launch</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>NFT MarketPlace</li>
-              <li>NFT Launch</li>
-              <li>Exchanges Listing</li>
-              <li>Dex Listing</li>
+              <li>Ecosystem Optimization</li>
+              <li>Universal Collaboration</li>
+              <li>Health Education Campaigns</li>
+              <li>Research Breakthroughs</li>
+              <li>Sustainable Governance</li>
             </ul>
             <span className="number">
               Q4 <br />
@@ -98,13 +99,13 @@ const Roadmap = () => {
             </div>
             <ul className="roadmap__info list-unstyled">
               <li>
-                In-house testing <br />
-                of functional
+              Global Standardization <br />
+              Autonomous Funding 
               </li>
-              <li>App development</li>
+              <li>AI-Powered Insightst</li>
               <li>
-                Further <br />
-                Development
+              Access for Innovation <br />
+              Impact Measurement
               </li>
             </ul>
             <span className="number">

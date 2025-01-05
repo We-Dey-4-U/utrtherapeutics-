@@ -58,7 +58,7 @@ const Hero = ({
           <div className="col-lg-7">
             <div className="hero__content">
               <h1 className="title mb-45">
-              Participate in the <span>Active INX Token</span> ICO Offering!
+              Participate in the <span>Active $INX Token</span> ICO Offering!
               </h1>
               <div className="btns">
                 {account ? (
