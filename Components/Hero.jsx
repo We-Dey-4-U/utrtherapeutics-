@@ -58,12 +58,12 @@ const Hero = ({
           <div className="col-lg-7">
             <div className="hero__content">
               <h1 className="title mb-45">
-              Participate in the <span>Active $INX Token</span> ICO Offering!
+              Participate in the <span>Active $UTR Token</span> ICO Offering!
               </h1>
               <div className="btns">
                 {account ? (
                   <a className="thm-btn" onClick={() => setBuyModel(true)}>
-                    Purchase INX Tokens
+                    Purchase UTR Tokens
                   </a>
                 ) : (
                   <a className="thm-btn" onClick={() => connectWallet()}>
@@ -75,7 +75,7 @@ const Hero = ({
                   className="thm-btn thm-btn--dark"
                   onClick={() => ADD_TOKEN_METAMASK()}
                 >
-                  Add INX Token to MetaMask
+                  Add UTR Token to MetaMask
                 </a>
               </div>
               <div className="hero__progress mt-50">

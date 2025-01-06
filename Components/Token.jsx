@@ -44,9 +44,9 @@ const Token = () => {
                 </li>
               </ul>
               <div className="token__info mt-40">
-                <h2>1 INX = 0.00001 BTC</h2>
+                <h2>1 UTR = 0.00001 BTC</h2>
                 <p>
-                  A percentage of the total INX token supply is designated as
+                  A percentage of the total UTR token supply is designated as
                   reserve tokens, which are reserved for strategic <br />
                   development purposes, ensuring the growth and sustainability of the project.
                 </p>

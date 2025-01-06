@@ -7,9 +7,9 @@ const TokenInfo = ({ detail, currency }) => {
         <div className="row">
           <div className="col-xl-8 offset-xl-4">
             <div className="token-info__title sec-title mb-95 text-center text-xl-start">
-              <h5 className="sec-title__subtitle">ICO INX Token</h5>
+              <h5 className="sec-title__subtitle">ICO UTR Token</h5>
               <h2 className="sec-title__title">
-                INX Token <br />
+                UTR Token <br />
                 Details and Sale
               </h2>
             </div>
@@ -19,7 +19,7 @@ const TokenInfo = ({ detail, currency }) => {
         <div className="col-lg-4">
   <div className="token-info__img">
     <img
-      src="assets/img/token/t_info_img2.png"
+      src="assets/img/token/utrgold.png"
       alt=""
       style={{
         width: "100%",

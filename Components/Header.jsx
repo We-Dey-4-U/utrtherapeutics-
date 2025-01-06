@@ -59,7 +59,7 @@ const Header = ({
               <div className="header__logo">
                 <a href="/">
                   <img
-                    src="assets/img/logo/inox22.png"
+                    src="assets/img/logo/utrlogo.png"
                     alt="Logo"
                     style={{
                       height: "80px",

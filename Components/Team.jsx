@@ -16,6 +16,7 @@ const Team = () => {
           <h2 class="sec-title__title">Meet our skilld team</h2>
         </div>
         <div class="team__wrap ul_li">
+
           <div class="team__item">
             <div class="avatar">
               <img src="assets/img/team/img_01.png" alt="" />
@@ -54,6 +55,8 @@ const Team = () => {
               </ul>
             </div>
           </div>
+
+
           <div class="team__item">
             <div class="avatar">
               <img src="assets/img/team/img_02.png" alt="" />
@@ -61,6 +64,46 @@ const Team = () => {
             <div class="team__info text-center mb-20">
               <h3>Nathaniel Lewis</h3>
               <span>Founder & CO</span>
+            </div>
+            <div class="team__social ul_li_center">
+              <ul class="team__social-link link-left ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialFacebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialTwitter />
+                  </a>
+                </li>
+              </ul>
+              <span class="h-icon">
+                <FaPlus />
+              </span>
+              <ul class="team__social-link link-right ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialInstagram />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          
+          <div class="team__item">
+            <div class="avatar">
+              <img src="assets/img/team/img_02.png" alt="" />
+            </div>
+            <div class="team__info text-center mb-20">
+              <h3>Chieke Ikenna</h3>
+              <span>developer</span>
             </div>
             <div class="team__social ul_li_center">
               <ul class="team__social-link link-left ul_li">
