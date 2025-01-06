@@ -252,8 +252,10 @@ export const addTokenToMetaMask = async () => {
     const tokenDecimals = tokenDeatils?.decimals;
     const tokenAddress = TOKEN_ADDRESS;
     const tokenSymbol = tokenDeatils?.symbol;
+    //https://i.postimg.cc/SKLRxSPB/utrgold.png
+    //https://i.postimg.cc/2SdhrqyS/inx-logotoken-removebg-preview.png
     const tokenImage =
-      "https://i.postimg.cc/2SdhrqyS/inx-logotoken-removebg-preview.png";
+      "https://i.postimg.cc/SKLRxSPB/utrgold.png";
 
     try {
       const wasAdded = await window.ethereum.request({
