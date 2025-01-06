@@ -19,7 +19,7 @@ export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
 export const CONTRACT_ADDRESS = "0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032";
 export const CONTRACT_ABI = tokenICO.abi;
 
-//NETWORK
+//NETWORK CONFIGURATION
 const networks = {
   polygon_amoy: {
     chainId: `0x${Number(80002).toString(16)}`,
@@ -47,8 +47,8 @@ const networks = {
     chainId: `0x${Number(137).toString(16)}`,
     chainName: "Polygon Mainnet",
     nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
+      name: "POL",
+      symbol: "POL",
       decimals: 18,
     },
     rpcUrls: ["https://rpc.ankr.com/polygon"],
@@ -64,6 +64,17 @@ const networks = {
     },
     rpcUrls: ["https://rpc.ankr.com/bsc"],
     blockExplorerUrls: ["https://bscscan.com"],
+  },
+  bscTestnet: {
+    chainId: `0x${Number(97).toString(16)}`, // Chain ID 97 in hex = "0x61"
+    chainName: "Binance Smart Chain Testnet",
+    nativeCurrency: {
+      name: "Binance Chain Native Token",
+      symbol: "BNB",
+      decimals: 18,
+    },
+    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"], // Testnet RPC
+    blockExplorerUrls: ["https://testnet.bscscan.com"], // Testnet Explorer
   },
   base_mainnet: {
     chainId: `0x${Number(8453).toString(16)}`,

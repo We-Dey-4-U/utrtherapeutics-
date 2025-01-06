@@ -13,7 +13,7 @@ const Team = () => {
       <div class="container">
         <div class="sec-title text-center mb-70">
           <h5 class="sec-title__subtitle">Our Team</h5>
-          <h2 class="sec-title__title">Meet our skilld team</h2>
+          <h2 class="sec-title__title">Meet our team</h2>
         </div>
         <div class="team__wrap ul_li">
 
@@ -99,7 +99,7 @@ const Team = () => {
           
           <div class="team__item">
             <div class="avatar">
-              <img src="assets/img/team/img_02.png" alt="" />
+              <img src="assets/img/team/ikenna.png" alt="" />
             </div>
             <div class="team__info text-center mb-20">
               <h3>Chieke Ikenna</h3>
