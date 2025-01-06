@@ -22,15 +22,15 @@ export const CONTRACT_ABI = tokenICO.abi;
 //NETWORK CONFIGURATION
 const networks = {
   polygon_amoy: {
-    chainId: `0x${Number(80002).toString(16)}`,
-    chainName: "Polygon Amoy",
+    chainId: `0x${Number(80002).toString(16)}`, // Converts 80002 to hex format
+    chainName: "Polygon Amoy", // Custom name for your network
     nativeCurrency: {
-      name: "POL",
-      symbol: "POL",
-      decimals: 18,
+      name: "MATIC", // Standard name for Polygon's native currency
+      symbol: "MATIC", // Ensure this matches MetaMask's expectation for the native token
+      decimals: 18, // Standard for most tokens
     },
-    rpcUrls: ["https://rpc-amoy.polygon.technology/"],
-    blockExplorerUrls: ["https://www.oklink.com/amoy"],
+    rpcUrls: ["https://rpc-amoy.polygon.technology/"], // Replace with a valid RPC URL for the network
+    blockExplorerUrls: ["https://www.oklink.com/amoy"], // Replace with a valid block explorer URL
   },
   polygon_mumbai: {
     chainId: `0x${Number(80001).toString(16)}`,
@@ -44,15 +44,15 @@ const networks = {
     blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
   },
   polygon: {
-    chainId: `0x${Number(137).toString(16)}`,
-    chainName: "Polygon Mainnet",
+    chainId: `0x${Number(137).toString(16)}`, // Converts 137 to hex format
+    chainName: "Polygon Mainnet", // Mainnet name
     nativeCurrency: {
-      name: "POL",
-      symbol: "POL",
-      decimals: 18,
+      name: "MATIC", // Correct native currency name for Polygon
+      symbol: "MATIC", // Correct symbol expected by MetaMask
+      decimals: 18, // Standard for most tokens
     },
-    rpcUrls: ["https://rpc.ankr.com/polygon"],
-    blockExplorerUrls: ["https://polygonscan.com/"],
+    rpcUrls: ["https://rpc.ankr.com/polygon"], // Valid RPC URL
+    blockExplorerUrls: ["https://polygonscan.com/"], // Valid block explorer URL
   },
   bsc: {
     chainId: `0x${Number(56).toString(16)}`,

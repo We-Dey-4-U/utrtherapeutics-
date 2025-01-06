@@ -19,7 +19,7 @@ const TokenInfo = ({ detail, currency }) => {
         <div className="col-lg-4">
   <div className="token-info__img">
     <img
-      src="assets/img/token/utrgold.png"
+      src="assets/img/token/utrhealthcoin.png"
       alt=""
       style={{
         width: "100%",
@@ -64,7 +64,7 @@ const TokenInfo = ({ detail, currency }) => {
                 </li>
                 <li>
                   <h4>Acceptable Currencies</h4>
-                  <span>ETH, BTC, LTC</span>
+                  <span>ETH, BTC, LTC,SOL,DOGE,SHIBA.PEPE</span>
                 </li>
               </ul>
             </div>
