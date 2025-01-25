@@ -110,9 +110,7 @@ const Roadmap = () => {
               2027
             </span>
           </div>
-          <div className="roadmap__shape">
-            <img src="assets/img/shape/rm_shape.png" alt="" />
-          </div>
+         
           <div className="roadmap__year">
             <h3 className="year year--start">2021</h3>
             <h3 className="year year--end">2027</h3>
