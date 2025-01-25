@@ -19,12 +19,12 @@ const About = () => {
               data-wow-delay="100ms"
             >
               <div className="sec-title mb-35">
-                <h5 className="sec-title__subtitle">WHAT IS InnovX (INX)</h5>
+                <h5 className="sec-title__subtitle">WHAT IS UTR ($UTR)</h5>
                 <h2 className="sec-title__title mb-25">
                   Empowering Global Health through Innovation and Blockchain.
                 </h2>
                 <p>
-                  InnovX (INX) is a decentralized token designed to revolutionize the world of medical research and healthcare. By leveraging the power of blockchain technology, AI collaboration, and tokenized incentives, InnovX aims to accelerate medical advancements, support clinical trials, and drive global health solutions. Our mission is to unite the global community in the fight against all diseases, ensuring access to innovative treatments and breakthroughs for everyone.
+                   (UTR) is a decentralized token designed to revolutionize the world of medical research and healthcare. By leveraging the power of blockchain technology, AI collaboration, and tokenized incentives, InnovX aims to accelerate medical advancements, support clinical trials, and drive global health solutions. Our mission is to unite the global community in the fight against all diseases, ensuring access to innovative treatments and breakthroughs for everyone.
                 </p>
               </div>
               <ul className="about__list ul_li">

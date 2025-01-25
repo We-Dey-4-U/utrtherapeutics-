@@ -8,8 +8,10 @@ const Roadmap = () => {
     >
       <div className="container">
         <div className="sec-title text-center mb-60">
-          <h5 className="sec-title__subtitle">Road map</h5>
-          <h2 className="sec-title__title">Our project plan</h2>
+          <h5 className="sec-title__subtitle">Roadmap</h5>
+          <h2 className="sec-title__title">
+            Paths towards the Clinic and Commercialization Roadmap
+          </h2>
         </div>
         <div className="roadmap__wrap ul_li_between">
           <div className="roadmap__item">
@@ -17,17 +19,14 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_01.svg" alt="" />
               </div>
-              <h3>Project Plan</h3>
+              <h3>Discovery Phase</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Platform Development</li>
-              <li>Token Launch</li>
-              <li>Initial Funding</li>
-              <li>Community Buildingt</li>
+              <li>Discovery Made</li>
             </ul>
             <span className="number">
               Q1 <br />
-              2022
+              2021
             </span>
           </div>
           <div className="roadmap__item">
@@ -35,17 +34,15 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_02.svg" alt="" />
               </div>
-              <h3>AI Clinical Trial </h3>
+              <h3>Proof of Concept</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>AI Partnerships</li>
-              <li>Clinical Trial Platform</li>
-              <li>Patient Support Expansion</li>
-              <li>Governance Features</li>
+              <li>Proof of Concept Studies Confirmed</li>
+              <li>Pre-IND Filed to the FDA</li>
             </ul>
             <span className="number">
-              Q2 <br />
-              2023
+              Q1 <br />
+              2022 - 2023
             </span>
           </div>
           <div className="roadmap__item">
@@ -53,21 +50,14 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_03.svg" alt="" />
               </div>
-              <h3>Expansion </h3>
+              <h3>Validation Phase</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Marketplace Launch</li>
-              <li>
-              Global Collaboration <br />
-              Research Grants 
-              </li>
-              <li>
-              NFT Campaigns <br />
-               
-              </li>
+              <li>Validation in Pan Cancers</li>
+              <li>IND Enablement</li>
             </ul>
             <span className="number">
-              Q3 <br />
+              Q1 <br />
               2024
             </span>
           </div>
@@ -76,49 +66,56 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_04.svg" alt="" />
               </div>
-              <h3>Growth</h3>
+              <h3>2025 Milestones</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Ecosystem Optimization</li>
-              <li>Universal Collaboration</li>
-              <li>Health Education Campaigns</li>
-              <li>Research Breakthroughs</li>
-              <li>Sustainable Governance</li>
+              <li>FDA Response to Resubmission</li>
+              <li>GMP Manufacturing</li>
+              <li>IND Enablement</li>
             </ul>
             <span className="number">
-              Q4 <br />
+              Q1 - Q4 <br />
               2025
             </span>
           </div>
           <div className="roadmap__item">
             <div className="roadmap__head ul_li">
               <div className="icon">
-                <img src="assets/img/icon/rm_01.svg" alt="" />
+                <img src="assets/img/icon/rm_05.svg" alt="" />
               </div>
-              <h3> Global</h3>
+              <h3>Clinical Trials</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>
-              Global Standardization <br />
-              Autonomous Funding 
-              </li>
-              <li>AI-Powered Insights</li>
-              <li>
-              Open Access <br />
-              Impact Metrics
-              </li>
+              <li>Phase 1 Clinical Trial Recruitment</li>
+              <li>Phase 1 Execution</li>
             </ul>
             <span className="number">
-              Q5 <br />
-              2026
+              Q1 <br />
+              2026 - 2027
+            </span>
+          </div>
+          <div className="roadmap__item">
+            <div className="roadmap__head ul_li">
+              <div className="icon">
+                <img src="assets/img/icon/rm_06.svg" alt="" />
+              </div>
+              <h3>Breakthrough</h3>
+            </div>
+            <ul className="roadmap__info list-unstyled">
+              <li>Strategic Liquidity Event (Target IPO)</li>
+              <li>Additional Pipeline Commercialization</li>
+            </ul>
+            <span className="number">
+              Q3 <br />
+              2027
             </span>
           </div>
           <div className="roadmap__shape">
             <img src="assets/img/shape/rm_shape.png" alt="" />
           </div>
           <div className="roadmap__year">
-            <h3 className="year year--start">2022</h3>
-            <h3 className="year year--end">2026</h3>
+            <h3 className="year year--start">2021</h3>
+            <h3 className="year year--end">2027</h3>
           </div>
         </div>
       </div>
