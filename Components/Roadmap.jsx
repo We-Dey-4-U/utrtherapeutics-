@@ -72,6 +72,7 @@ const Roadmap = () => {
               <li>FDA Response to Resubmission</li>
               <li>GMP Manufacturing</li>
               <li>IND Enablement</li>
+              <li>Blockchain Revolution</li>
             </ul>
             <span className="number">
               Q1 - Q4 <br />
