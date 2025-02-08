@@ -24,7 +24,7 @@ const About = () => {
                   Empowering Global Health through Innovation and Blockchain.
                 </h2>
                 <p>
-                   (UTR) is a decentralized token designed to revolutionize the world of medical research and healthcare. By leveraging the power of blockchain technology, AI collaboration, and tokenized incentives, InnovX aims to accelerate medical advancements, support clinical trials, and drive global health solutions. Our mission is to unite the global community in the fight against all diseases, ensuring access to innovative treatments and breakthroughs for everyone.
+                   (UTR) Therapeutics Inc. is a Pre-Clinical Stage biotech company with a first-in-class technology that can overwrite any target of interest. We’ve proven this robustly in difficult to treat cancers and are ready to scale into Neurodegenerative and Rare Diseases.
                 </p>
               </div>
               <ul className="about__list ul_li">
