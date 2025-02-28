@@ -40,11 +40,12 @@ const Token = () => {
                     aria-selected="false"
                   >
                     Token Distribution
+                    
                   </button>
                 </li>
               </ul>
               <div className="token__info mt-40">
-                <h2>1 UTR = 0.00001 BTC</h2>
+                <h2>1 UTR = 0.004BNB</h2>
                 <p>
                   A percentage of the total UTR token supply is designated as
                   reserve tokens, which are reserved for strategic <br />
