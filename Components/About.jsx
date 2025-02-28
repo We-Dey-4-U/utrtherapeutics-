@@ -26,6 +26,14 @@ const About = () => {
                 <p>
                    (UTR) Therapeutics Inc. is a Pre-Clinical Stage biotech company with a first-in-class technology that can overwrite any target of interest. We’ve proven this robustly in difficult to treat cancers and are ready to scale into Neurodegenerative and Rare Diseases.
                 </p>
+                <div className="center-button-container">
+             <button 
+              className="transparent"
+              onClick={() => window.open("https://utrtherapeutics.com/", "_blank", "noopener,noreferrer")}
+              >
+             Read More
+           </button>
+            </div>
               </div>
               <ul className="about__list ul_li">
                 <li>
