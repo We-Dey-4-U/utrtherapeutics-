@@ -24,7 +24,7 @@ const About = () => {
                   Empowering Global Health through Innovation and Blockchain.
                 </h2>
                 <p>
-                   (UTR) Therapeutics Inc. is a Pre-Clinical Stage biotech company with a first-in-class technology that can overwrite any target of interest. We’ve proven this robustly in difficult to treat cancers and are ready to scale into Neurodegenerative and Rare Diseases.
+                   (UTR) Therapeutics Inc. its an IND Stage biotech company with a first-in-class technology that can overwrite any target of interest. We’ve proven this robustly in difficult to treat cancers and are ready to scale into Neurodegenerative and Rare Diseases.
                 </p>
                 <div className="center-button-container">
              <button 
