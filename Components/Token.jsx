@@ -72,7 +72,7 @@ const Token = () => {
                 aria-labelledby="home-tab"
               >
                 <div className="token__img">
-                  <img src="assets/img/token/token_chart.png" alt="" />
+                  <img src="assets/img/token/tokenchart.png" alt="" />
                 </div>
               </div>
               <div

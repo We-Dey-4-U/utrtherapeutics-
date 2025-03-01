@@ -24,7 +24,7 @@ const About = () => {
                   Empowering Global Health through Innovation and Blockchain.
                 </h2>
                 <p>
-                   (UTR) Therapeutics Inc. its an IND Stage biotech company with a first-in-class technology that can overwrite any target of interest. We’ve proven this robustly in difficult to treat cancers and are ready to scale into Neurodegenerative and Rare Diseases.
+                UTR  Therapeutics  Inc  is an IND Stage biotech company with a first-in-class technology  that can overwrite any target  of interest.  We have proven  this robustly in difficult  to treat cancers and have filed IND submissions for  various cancers to regulatory authorities  in the US and outside of the US. This technology  is also ready to scale into Neurodegenerative and rare diseases.
                 </p>
                 <div className="center-button-container">
              <button 
