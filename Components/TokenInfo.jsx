@@ -64,7 +64,7 @@ const TokenInfo = ({ detail, currency }) => {
                 </li>
                 <li>
                   <h4>Acceptable Currencies</h4>
-                  <span>ETH, BTC, LTC,SOL,DOGE,SHIBA.PEPE</span>
+                  <span>BNB,ETH, BTC, LTC,SOL,DOGE,SHIBA.PEPE</span>
                 </li>
               </ul>
             </div>

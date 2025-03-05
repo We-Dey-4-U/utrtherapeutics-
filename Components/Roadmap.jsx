@@ -8,10 +8,8 @@ const Roadmap = () => {
     >
       <div className="container">
         <div className="sec-title text-center mb-60">
-          <h5 className="sec-title__subtitle">Roadmap</h5>
-          <h2 className="sec-title__title">
-            Paths towards the Clinic and Commercialization Roadmap
-          </h2>
+          <h5 className="sec-title__subtitle">Road map</h5>
+          <h2 className="sec-title__title">Paths towards the Clinic and Commercialization Roadmap</h2>
         </div>
         <div className="roadmap__wrap ul_li_between">
           <div className="roadmap__item">
@@ -19,10 +17,13 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_01.svg" alt="" />
               </div>
-              <h3>Discovery Phase</h3>
+              <h3>Discovery<br />Phase</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
               <li>Discovery Made</li>
+              <li>Early-stage research</li>
+              <li>Validation to establish  </li>
+              <li>proof of feasibility</li>
             </ul>
             <span className="number">
               Q1 <br />
@@ -34,15 +35,17 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_02.svg" alt="" />
               </div>
-              <h3>Proof of Concept</h3>
+              <h3>Proof of Concept </h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Proof of Concept Studies Confirmed</li>
+              <li>Proof of Concept</li>
+              <li>Studies Confirmed</li>
               <li>Pre-IND Filed to the FDA</li>
+              <li></li>
             </ul>
             <span className="number">
               Q1 <br />
-              2022 - 2023
+              2022-2023
             </span>
           </div>
           <div className="roadmap__item">
@@ -50,11 +53,17 @@ const Roadmap = () => {
               <div className="icon">
                 <img src="assets/img/icon/rm_03.svg" alt="" />
               </div>
-              <h3>Validation Phase</h3>
+              <h3>Validation<br />phase</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Validation in Pan Cancers</li>
-              <li>IND Enablement</li>
+              <li>Validation in</li>
+              <li>
+                Pan Cancers and
+              </li>
+              <li>
+              IND Enablement <br />
+               
+              </li>
             </ul>
             <span className="number">
               Q1 <br />
@@ -75,43 +84,36 @@ const Roadmap = () => {
               <li>Blockchain Revolution</li>
             </ul>
             <span className="number">
-              Q1 - Q4 <br />
+              Q1-Q4 <br />
               2025
             </span>
           </div>
           <div className="roadmap__item">
             <div className="roadmap__head ul_li">
               <div className="icon">
-                <img src="assets/img/icon/rm_05.svg" alt="" />
+                <img src="assets/img/icon/rm_01.svg" alt="" />
               </div>
-              <h3>Clinical Trials</h3>
+              <h3> Breakthrough</h3>
             </div>
             <ul className="roadmap__info list-unstyled">
-              <li>Phase 1 Clinical Trial Recruitment</li>
-              <li>Phase 1 Execution</li>
+              <li>
+              Strategic Liquidity <br />
+              Event (Target IPO)
+              </li>
+              <li>AI-Powered Insights</li>
+              <li>
+              Additional Pipeline <br />
+              Commercialization
+              </li>
             </ul>
             <span className="number">
               Q1 <br />
-              2026 - 2027
+              2026-2027
             </span>
           </div>
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_06.svg" alt="" />
-              </div>
-              <h3>Breakthrough</h3>
-            </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>Strategic Liquidity Event (Target IPO)</li>
-              <li>Additional Pipeline Commercialization</li>
-            </ul>
-            <span className="number">
-              Q3 <br />
-              2027
-            </span>
+          <div className="roadmap__shape">
+            <img src="assets/img/shape/rm_shape.png" alt="" />
           </div>
-         
           <div className="roadmap__year">
             <h3 className="year year--start">2021</h3>
             <h3 className="year year--end">2027</h3>
