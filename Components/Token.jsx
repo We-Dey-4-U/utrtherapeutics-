@@ -47,8 +47,8 @@ const Token = () => {
               <div className="token__info mt-40">
                 <h2>1 UTR = 0.004BNB</h2>
                 <p>
-                  A percentage of the total UTR token supply is designated as
-                  reserve tokens, which are reserved for strategic <br />
+                  15% percent of the total UTR token supply is designated as
+                  reserve tokens, which are reserved for strategic use <br />
                   development purposes, ensuring the growth and sustainability of the project.
                 </p>
                 <div className="token-btn mt-40">
@@ -72,7 +72,7 @@ const Token = () => {
                 aria-labelledby="home-tab"
               >
                 <div className="token__img">
-                  <img src="assets/img/token/tokenchart2.png" alt="" />
+                  <img src="assets/img/token/tokenomics28.png" alt="" />
                 </div>
               </div>
               <div
