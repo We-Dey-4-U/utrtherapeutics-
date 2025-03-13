@@ -47,9 +47,13 @@ const Token = () => {
               <div className="token__info mt-40">
                 <h2>1 UTR = 0.004BNB</h2>
                 <p>
-                  15% percent of the total UTR token supply is designated as
-                  reserve tokens, which are reserved for strategic use <br />
-                  development purposes, ensuring the growth and sustainability of the project.
+                UTR is a company with 150 million shares traded in the stock market. 
+                In a bold move to revolutionize its financial ecosystem, UTR decided to transition a 
+                portion of its shares into blockchain. As part of this transformation, 10 million
+                 shares were allocated to blockchain, forming the total supply of UTRX tokens.<br />
+                 To ensure the long-term sustainability and development of the project, 15% of the total UTRX token supply is designated as reserve tokens. These tokens are strategically set aside for development initiatives, partnerships, and ensuring the continued growth of the UTRX ecosystem.
+
+                This hybrid approach positions UTR as a pioneer, bridging the gap between traditional finance and blockchain technology while maximizing innovation and investor confidence.
                 </p>
                 <div className="token-btn mt-40">
                   <a className="thm-btn" href="#!">

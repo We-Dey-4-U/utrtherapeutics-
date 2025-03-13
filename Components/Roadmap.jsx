@@ -144,9 +144,8 @@ const Roadmap = () => {
       {/* UTRX Token Growth Chart */}
       <div className="roadmap__image-section text-center" style={{ marginTop: "130px" }}>
         <h1 className="roadmap__extra-title" style={{ marginBottom: "20px" }}>
-          The Rising Value of UTRX Coin: A Stage-by-Stage Outlook
+         UTRx Token Value Growth By Stage Of Development
         </h1>
-        
         <div style={{ width: "100%", height: 400 }}>
         <ResponsiveContainer width="100%" height="100%">
         <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
@@ -167,6 +166,7 @@ const Roadmap = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 
