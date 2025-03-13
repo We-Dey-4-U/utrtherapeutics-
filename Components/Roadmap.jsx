@@ -1,4 +1,16 @@
 import React from "react";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+
+
+
+const utrxData = [
+  { stage: "IND Submission", value: 0.2 },
+  { stage: "IND Approval", value: 0.8 },
+  { stage: "Phase 1 Commencement", value: 1.5 },
+  { stage: "Phase 1 Completion", value: 3.0 },
+  { stage: "Accelerated NDA Application", value: 5.5 },
+  { stage: "Sales to Patients", value: 10.0 },
+];
 
 const Roadmap = () => {
   return (
@@ -129,19 +141,23 @@ const Roadmap = () => {
         </div>
       </div>
 
-       {/* New Section with Image and H1 */}
-       <div 
-        className="roadmap__image-section text-center" 
-        style={{ marginTop: "130px" }}
-      >
+      {/* UTRX Token Growth Chart */}
+      <div className="roadmap__image-section text-center" style={{ marginTop: "130px" }}>
         <h1 className="roadmap__extra-title" style={{ marginBottom: "20px" }}>
           The Rising Value of UTRX Coin: A Stage-by-Stage Outlook
         </h1>
-        <img 
-          src="assets/img/shape/s_shape2.png" 
-          alt="Extra Roadmap" 
-          className="roadmap__extra-image" 
-        />
+        
+        <div style={{ width: "100%", height: 400 }}>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
+               <YAxis tick={{ fill: "#fff" }} />
+               <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
+              <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={3} dot={{ r: 6 }} />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </section>
   );
