@@ -128,6 +128,21 @@ const Roadmap = () => {
           <img src="assets/img/shape/s_shape2.png" alt="" />
         </div>
       </div>
+
+       {/* New Section with Image and H1 */}
+       <div 
+        className="roadmap__image-section text-center" 
+        style={{ marginTop: "130px" }}
+      >
+        <h1 className="roadmap__extra-title" style={{ marginBottom: "20px" }}>
+          The Rising Value of UTRX Coin: A Stage-by-Stage Outlook
+        </h1>
+        <img 
+          src="assets/img/shape/s_shape2.png" 
+          alt="Extra Roadmap" 
+          className="roadmap__extra-image" 
+        />
+      </div>
     </section>
   );
 };
