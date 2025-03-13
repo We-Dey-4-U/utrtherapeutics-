@@ -142,7 +142,7 @@ const Roadmap = () => {
       </div>
 
       {/* UTRX Token Growth Chart */}
-      <div className="roadmap__image-section text-center" style={{ marginTop: "130px" }}>
+      <div className="roadmap__image-section text-center" style={{ marginTop: "320px" }}>
         <h1 className="roadmap__extra-title" style={{ marginBottom: "20px" }}>
          UTRx Token Value Growth By Stage Of Development
         </h1>

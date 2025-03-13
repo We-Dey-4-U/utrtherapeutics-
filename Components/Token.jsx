@@ -47,10 +47,10 @@ const Token = () => {
               <div className="token__info mt-40">
                 <h2>1 UTR = 0.004BNB</h2>
                 <p>
-                UTR is a company with 150 million shares traded in the stock market. 
-                In a bold move to revolutionize its financial ecosystem, UTR decided to transition a 
-                portion of its shares into blockchain. As part of this transformation, 10 million
-                 shares were allocated to blockchain, forming the total supply of UTRX tokens.<br />
+                UTR Therapeutics Inc., an IND-stage biotech company with a first-in-class mRNA overwriting 
+                technology, has pioneered breakthrough drugs for deadly cancers. In a bold move to revolutionize 
+                its financial ecosystem, UTR decided to transition a portion of its shares for TNBC into blockchain. 
+                As part of this transformation, 10 million shares were allocated to blockchain, forming the total supply of UTRX tokens.<br />
                  To ensure the long-term sustainability and development of the project, 15% of the total UTRX token supply is designated as reserve tokens. These tokens are strategically set aside for development initiatives, partnerships, and ensuring the continued growth of the UTRX ecosystem.
 
                 This hybrid approach positions UTR as a pioneer, bridging the gap between traditional finance and blockchain technology while maximizing innovation and investor confidence.
