@@ -11,12 +11,12 @@ import {
 } from "recharts";
 
 const utrxData = [
-  { stage: "IND Submission", open: 2.5, close: 3.0, high: 3.5, low: 2.2 },
-  { stage: "IND Approval", open: 5.0, close: 6.0, high: 7.0, low: 4.5 },
-  { stage: "Phase 1 Commencement", open: 10.0, close: 12.0, high: 14.0, low: 9.0 },
-  { stage: "Phase 1 Completion", open: 20.0, close: 25.0, high: 28.0, low: 18.0 },
-  { stage: "Accelerated NDA Application", open: 40.0, close: 50.0, high: 55.0, low: 36.0 },
-  { stage: "Sales to Patients", open: 80.0, close: 100.0, high: 110.0, low: 72.0 },
+  { stage: "IND Submission", open: 2.5 },
+  { stage: "IND Approval", open: 5.0 },
+  { stage: "Phase 1 Commencement", open: 10.0 },
+  { stage: "Phase 1 Completion", open: 20.0 },
+  { stage: "Accelerated NDA Application", open: 40.0 },
+  { stage: "Sales to Patients", open: 80.0 },
 ];
 
 const Roadmap = () => {
@@ -111,7 +111,7 @@ const Roadmap = () => {
                 <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
                 <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
                 <Bar dataKey="close" fill="#28a745" barSize={20} />
-                <Bar dataKey="open" fill="#dc3545" barSize={20} />
+                <Bar dataKey="open" fill="#28a745" barSize={20} /> {/* Green candles */}
               </ComposedChart>
             </ResponsiveContainer>
           </div>
