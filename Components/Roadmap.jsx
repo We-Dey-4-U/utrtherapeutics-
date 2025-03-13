@@ -108,8 +108,11 @@ const Roadmap = () => {
                 <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
                 <YAxis tick={{ fill: "#fff" }} tickFormatter={(value) => `$${value}`} />
                 <Tooltip
-                 contentStyle={{ backgroundColor: "#222", color: "#fff" }}
-                 formatter={(value) => [`$${value}`, "Value"]}
+                contentStyle={{ backgroundColor: "#222", color: "#fff" }}
+                formatter={(value, name) => {
+                const labelMap = { high: "High", low: "Low", open: "Open" };
+                 return [`$${value}`, labelMap[name] || name];
+                  }}
                 />
                 <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
                 <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
