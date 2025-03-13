@@ -106,8 +106,11 @@ const Roadmap = () => {
               <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
-                <YAxis tick={{ fill: "#fff" }} />
-                <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
+                <YAxis tick={{ fill: "#fff" }} tickFormatter={(value) => `$${value}`} />
+                <Tooltip
+                 contentStyle={{ backgroundColor: "#222", color: "#fff" }}
+                 formatter={(value) => [`$${value}`, "Value"]}
+                />
                 <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
                 <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
                 <Bar dataKey="open" fill="#28a745" barSize={20} />
