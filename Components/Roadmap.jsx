@@ -1,172 +1,123 @@
 import React from "react";
 import {
-  ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar
+  ComposedChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Bar,
 } from "recharts";
 
 const utrxData = [
-  { stage: "IND Submission", open: 0.1, close: 0.2, high: 0.3, low: 0.05 },
-  { stage: "IND Approval", open: 0.6, close: 0.8, high: 1.0, low: 0.5 },
-  { stage: "Phase 1 Commencement", open: 1.2, close: 1.5, high: 1.7, low: 1.0 },
-  { stage: "Phase 1 Completion", open: 2.5, close: 3.0, high: 3.2, low: 2.2 },
-  { stage: "Accelerated NDA Application", open: 4.8, close: 5.5, high: 6.0, low: 4.5 },
-  { stage: "Sales to Patients", open: 9.0, close: 10.0, high: 10.5, low: 8.5 },
+  { stage: "IND Submission", open: 2.5, close: 3.0, high: 3.5, low: 2.2 },
+  { stage: "IND Approval", open: 5.0, close: 6.0, high: 7.0, low: 4.5 },
+  { stage: "Phase 1 Commencement", open: 10.0, close: 12.0, high: 14.0, low: 9.0 },
+  { stage: "Phase 1 Completion", open: 20.0, close: 25.0, high: 28.0, low: 18.0 },
+  { stage: "Accelerated NDA Application", open: 40.0, close: 50.0, high: 55.0, low: 36.0 },
+  { stage: "Sales to Patients", open: 80.0, close: 100.0, high: 110.0, low: 72.0 },
 ];
 
 const Roadmap = () => {
   return (
-    <section
-      id="roadmap"
-      className="roadmap pt-lg-80 pb-md-100 pt-145 pos-rel pb-200"
-    >
-      <div className="container">
-        <div className="sec-title text-center mb-60">
-          <h5 className="sec-title__subtitle">Road map</h5>
-          <h2 className="sec-title__title">Paths towards the Clinic and Commercialization Roadmap</h2>
-        </div>
-        <div className="roadmap__wrap ul_li_between">
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_01.svg" alt="" />
+    <>
+      <section id="roadmap" className="roadmap pt-lg-80 pb-md-100 pt-145 pos-rel pb-200">
+        <div className="container">
+          <div className="sec-title text-center mb-60">
+            <h5 className="sec-title__subtitle">Road map</h5>
+            <h2 className="sec-title__title">Paths towards the Clinic and Commercialization Roadmap</h2>
+          </div>
+          <div className="roadmap__wrap ul_li_between">
+            {[
+              {
+                icon: "assets/img/icon/rm_01.svg",
+                title: "Discovery Phase",
+                details: ["Discovery Made", "Early-stage research", "Validation to establish", "proof of feasibility"],
+                time: "Q1 2021",
+              },
+              {
+                icon: "assets/img/icon/rm_02.svg",
+                title: "Proof of Concept",
+                details: ["Proof of Concept", "Studies Confirmed", "Pre-IND Filed to the FDA"],
+                time: "Q1 2022-2023",
+              },
+              {
+                icon: "assets/img/icon/rm_03.svg",
+                title: "Validation Phase",
+                details: ["Validation in", "Pan Cancers and", "IND Enablement"],
+                time: "Q1 2024",
+              },
+              {
+                icon: "assets/img/icon/rm_04.svg",
+                title: "2025 Milestones",
+                details: ["FDA Response to Resubmission", "GMP Manufacturing", "IND Enablement", "Blockchain Revolution"],
+                time: "Q1-Q4 2025",
+              },
+              {
+                icon: "assets/img/icon/rm_01.svg",
+                title: "Breakthrough",
+                details: ["Strategic Liquidity Event (Target IPO)", "AI-Powered Insights", "Additional Pipeline Commercialization"],
+                time: "Q1 2026-2027",
+              },
+            ].map((item, index) => (
+              <div className="roadmap__item" key={index}>
+                <div className="roadmap__head ul_li">
+                  <div className="icon">
+                    <img src={item.icon} alt="" />
+                  </div>
+                  <h3>{item.title}</h3>
+                </div>
+                <ul className="roadmap__info list-unstyled">
+                  {item.details.map((detail, i) => (
+                    <li key={i}>{detail}</li>
+                  ))}
+                </ul>
+                <span className="number">{item.time}</span>
               </div>
-              <h3>Discovery<br />Phase</h3>
+            ))}
+            <div className="roadmap__shape" style={{ marginTop: "-281px" }}>
+              <img src="assets/img/shape/rm_shape.png" alt="" />
             </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>Discovery Made</li>
-              <li>Early-stage research</li>
-              <li>Validation to establish  </li>
-              <li>proof of feasibility</li>
-            </ul>
-            <span className="number">
-              Q1 <br />
-              2021
-            </span>
-          </div>
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_02.svg" alt="" />
-              </div>
-              <h3>Proof of Concept </h3>
+            <div className="roadmap__year">
+              <h3 className="year year--start" style={{ marginTop: "-300px" }}>2021</h3>
+              <h3 className="year year--end" style={{ marginTop: "-300px" }}>2027</h3>
             </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>Proof of Concept</li>
-              <li>Studies Confirmed</li>
-              <li>Pre-IND Filed to the FDA</li>
-              <li></li>
-            </ul>
-            <span className="number">
-              Q1 <br />
-              2022-2023
-            </span>
-          </div>
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_03.svg" alt="" />
-              </div>
-              <h3>Validation<br />phase</h3>
-            </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>Validation in</li>
-              <li>
-                Pan Cancers and
-              </li>
-              <li>
-              IND Enablement <br />
-               
-              </li>
-            </ul>
-            <span className="number">
-              Q1 <br />
-              2024
-            </span>
-          </div>
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_04.svg" alt="" />
-              </div>
-              <h3>2025 Milestones</h3>
-            </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>FDA Response to Resubmission</li>
-              <li>GMP Manufacturing</li>
-              <li>IND Enablement</li>
-              <li>Blockchain Revolution</li>
-            </ul>
-            <span className="number">
-              Q1-Q4 <br />
-              2025
-            </span>
-          </div>
-          <div className="roadmap__item">
-            <div className="roadmap__head ul_li">
-              <div className="icon">
-                <img src="assets/img/icon/rm_01.svg" alt="" />
-              </div>
-              <h3> Breakthrough</h3>
-            </div>
-            <ul className="roadmap__info list-unstyled">
-              <li>
-              Strategic Liquidity <br />
-              Event (Target IPO)
-              </li>
-              <li>AI-Powered Insights</li>
-              <li>
-              Additional Pipeline <br />
-              Commercialization
-              </li>
-            </ul>
-            <span className="number">
-              Q1 <br />
-              2026-2027
-            </span>
-          </div>
-          <div className="roadmap__shape" style={{ marginTop: "-300px" }}>
-            <img src="assets/img/shape/rm_shape.png" alt="" />
-          </div>
-          <div className="roadmap__year" >
-            <h3 className="year year--start" style={{ marginTop: "-300px" }}>2021</h3>
-            <h3 className="year year--end" style={{ marginTop: "-300px" }}>2027</h3>
           </div>
         </div>
-      </div>
-      <div className="roadmap__sec-shape">
-        <div className="shape shape--1">
-          <img src="assets/img/shape/s_shape1.png" alt="" />
+        <div className="roadmap__sec-shape">
+          <div className="shape shape--1">
+            <img src="assets/img/shape/s_shape1.png" alt="" />
+          </div>
+          <div className="shape shape--2">
+            <img src="assets/img/shape/s_shape2.png" alt="" />
+          </div>
         </div>
-        <div className="shape shape--2">
-          <img src="assets/img/shape/s_shape2.png" alt="" />
-        </div>
-      </div>
+      </section>
 
-      {/* UTRX Token Growth Chart */}
-      <div className="roadmap__image-section text-center" style={{ marginTop: "320px" }}>
-        <h1 className="roadmap__extra-title" style={{ marginBottom: "20px" }}>
-         UTRx Token Value Growth By Stage Of Development
-        </h1>
-        <div style={{ width: "100%", height: 400 }}>
-        <ResponsiveContainer width="100%" height="100%">
-        <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-          <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
-          <YAxis tick={{ fill: "#fff" }} />
-          <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
-          
-          {/* Wicks (High/Low lines) */}
-          <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
-          <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
-          
-          {/* Candles (Open/Close bars) */}
-          <Bar dataKey="close" fill="#28a745" barSize={20} />  {/* Green for rising */}
-          <Bar dataKey="open" fill="#dc3545" barSize={20} />   {/* Red for falling */}
-        </ComposedChart>
-      </ResponsiveContainer>
+      {/* UTRX Token Growth Chart Section */}
+      <section id="utrx-chart" className="chart-section pt-100 pb-100 text-center">
+        <div className="container">
+          <h1 className="chart-title" style={{ marginBottom: "20px" }}>
+            UTRx Token Value Growth By Stage Of Development
+          </h1>
+          <div style={{ width: "100%", height: 400 }}>
+            <ResponsiveContainer width="100%" height="100%">
+              <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+                <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
+                <YAxis tick={{ fill: "#fff" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
+                <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
+                <Bar dataKey="close" fill="#28a745" barSize={20} />
+                <Bar dataKey="open" fill="#dc3545" barSize={20} />
+              </ComposedChart>
+            </ResponsiveContainer>
+          </div>
         </div>
-      </div>
-    </section>
-    
+      </section>
+    </>
   );
 };
 
