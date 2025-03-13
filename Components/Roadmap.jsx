@@ -1,15 +1,15 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
-
-
+import {
+  ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Bar
+} from "recharts";
 
 const utrxData = [
-  { stage: "IND Submission", value: 0.2 },
-  { stage: "IND Approval", value: 0.8 },
-  { stage: "Phase 1 Commencement", value: 1.5 },
-  { stage: "Phase 1 Completion", value: 3.0 },
-  { stage: "Accelerated NDA Application", value: 5.5 },
-  { stage: "Sales to Patients", value: 10.0 },
+  { stage: "IND Submission", open: 0.1, close: 0.2, high: 0.3, low: 0.05 },
+  { stage: "IND Approval", open: 0.6, close: 0.8, high: 1.0, low: 0.5 },
+  { stage: "Phase 1 Commencement", open: 1.2, close: 1.5, high: 1.7, low: 1.0 },
+  { stage: "Phase 1 Completion", open: 2.5, close: 3.0, high: 3.2, low: 2.2 },
+  { stage: "Accelerated NDA Application", open: 4.8, close: 5.5, high: 6.0, low: 4.5 },
+  { stage: "Sales to Patients", open: 9.0, close: 10.0, high: 10.5, low: 8.5 },
 ];
 
 const Roadmap = () => {
@@ -148,15 +148,22 @@ const Roadmap = () => {
         </h1>
         
         <div style={{ width: "100%", height: 400 }}>
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
-               <YAxis tick={{ fill: "#fff" }} />
-               <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
-              <Line type="monotone" dataKey="value" stroke="#8884d8" strokeWidth={3} dot={{ r: 6 }} />
-            </LineChart>
-          </ResponsiveContainer>
+        <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+          <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
+          <YAxis tick={{ fill: "#fff" }} />
+          <Tooltip contentStyle={{ backgroundColor: "#222", color: "#fff" }} />
+          
+          {/* Wicks (High/Low lines) */}
+          <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
+          
+          {/* Candles (Open/Close bars) */}
+          <Bar dataKey="close" fill="#28a745" barSize={20} />  {/* Green for rising */}
+          <Bar dataKey="open" fill="#dc3545" barSize={20} />   {/* Red for falling */}
+        </ComposedChart>
+      </ResponsiveContainer>
         </div>
       </div>
     </section>
