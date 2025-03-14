@@ -28,70 +28,6 @@ const Roadmap = () => {
             <h5 className="sec-title__subtitle">Road map</h5>
             <h2 className="sec-title__title">Paths towards the Clinic and Commercialization Roadmap</h2>
           </div>
-          <div className="roadmap__wrap ul_li_between">
-            {[
-              {
-                icon: "assets/img/icon/rm_01.svg",
-                title: "Discovery Phase",
-                details: ["Discovery Made", "Early-stage research", "Validation to establish", "proof of feasibility"],
-                time: "Q1 2021",
-              },
-              {
-                icon: "assets/img/icon/rm_02.svg",
-                title: "Proof of Concept",
-                details: ["Proof of Concept", "Studies Confirmed", "Pre-IND Filed to the FDA"],
-                time: "Q1 2022-2023",
-              },
-              {
-                icon: "assets/img/icon/rm_03.svg",
-                title: "Validation Phase",
-                details: ["Validation in", "Pan Cancers and", "IND Enablement"],
-                time: "Q1 2024",
-              },
-              {
-                icon: "assets/img/icon/rm_04.svg",
-                title: "2025 Milestones",
-                details: ["FDA Response to Resubmission", "GMP Manufacturing", "IND Enablement", "Blockchain Revolution"],
-                time: "Q1-Q4 2025",
-              },
-              {
-                icon: "assets/img/icon/rm_01.svg",
-                title: "Breakthrough",
-                details: ["Strategic Liquidity Event (Target IPO)", "AI-Powered Insights", "Additional Pipeline Commercialization"],
-                time: "Q1 2026-2027",
-              },
-            ].map((item, index) => (
-              <div className="roadmap__item" key={index}>
-                <div className="roadmap__head ul_li">
-                  <div className="icon">
-                    <img src={item.icon} alt="" />
-                  </div>
-                  <h3>{item.title}</h3>
-                </div>
-                <ul className="roadmap__info list-unstyled">
-                  {item.details.map((detail, i) => (
-                    <li key={i}>{detail}</li>
-                  ))}
-                </ul>
-                <span className="number">{item.time}</span>
-              </div>
-            ))}
-            <div className="roadmap__shape" style={{ marginTop: "-281px" }}>
-              <img src="assets/img/shape/rm_shape.png" alt="" />
-            </div>
-            <div className="roadmap__year">
-              <h3 className="year year--start" style={{ marginTop: "-300px" }}>2021</h3>
-              <h3 className="year year--end" style={{ marginTop: "-300px" }}>2027</h3>
-            </div>
-          </div>
-        </div>
-        <div className="roadmap__sec-shape">
-          <div className="shape shape--1">
-            <img src="assets/img/shape/s_shape1.png" alt="" />
-          </div>
-          <div className="shape shape--2">
-            <img src="assets/img/shape/s_shape2.png" alt="" />
-          </div>
         </div>
       </section>
 
@@ -119,6 +55,53 @@ const Roadmap = () => {
                 <Bar dataKey="open" fill="#28a745" barSize={20} />
               </ComposedChart>
             </ResponsiveContainer>
+          </div>
+        </div>
+      </section>
+
+      {/* Milestone Table Section */}
+      <section id="milestone-table" className="table-section pt-100 pb-100 text-center">
+        <div className="container">
+          <h1 className="table-title" style={{ marginBottom: "20px", color: "#fff" }}>
+            Project Milestones & Cost Estimates
+          </h1>
+          <div className="table-container" style={{ overflowX: "auto", maxWidth: "100%" }}>
+            <table style={{ width: "100%", minWidth: "600px", borderCollapse: "collapse", color: "#fff", border: "1px solid white" }}>
+              <thead>
+                <tr>
+                  <th style={{ border: "1px solid white", padding: "10px" }}>Stage</th>
+                  <th style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Objective</th>
+                  <th style={{ border: "1px solid white", padding: "10px" }}>Duration</th>
+                  <th style={{ border: "1px solid white", padding: "10px" }}>Cost Estimate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Discovery and Preclinical research</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>identify potential drug candidates and test safety/efficacy-in labs and animal</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2021</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$5M</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Proof of Concept</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Pre-IND studies and regulatory filing</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2022-2023</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$10M</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Validation Phase</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>IND Enablement & clinical validation</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2024</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$20M</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>2025 Milestones</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>FDA Response & GMP Manufacturing</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1-Q4 2025</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$50M</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
