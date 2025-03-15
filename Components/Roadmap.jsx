@@ -131,48 +131,79 @@ const Roadmap = () => {
       <section id="milestone-table" className="table-section pt-100 pb-100 text-center">
         <div className="container">
           <h1 className="table-title" style={{ marginBottom: "20px", color: "#fff" }}>
-            Project Milestones & Cost Estimates
+            Project Milestones, Duration & Cost Estimates
           </h1>
           <div className="table-container" style={{ overflowX: "auto", maxWidth: "100%" }}>
             <table style={{ width: "100%", minWidth: "600px", borderCollapse: "collapse", color: "#fff", border: "1px solid white" }}>
               <thead>
                 <tr>
                   <th style={{ border: "1px solid white", padding: "10px" }}>Stage</th>
-                  <th style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Objective</th>
+                  <th style={{ border: "1px solid white", padding: "10px", width: "500px" }}>Objective</th>
                   <th style={{ border: "1px solid white", padding: "10px" }}>Duration</th>
                   <th style={{ border: "1px solid white", padding: "10px" }}>Cost Estimate</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Discovery Phase</td>
-                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Early-stage research and validation</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2021</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>FDA Submission & Approval</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>IND Submission</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>6 - 9 months</td>
                   <td style={{ border: "1px solid white", padding: "10px" }}>$5M</td>
                 </tr>
                 <tr>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Proof of Concept</td>
-                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Pre-IND studies and regulatory filing</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2022-2023</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$10M</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Ico Initial Launch</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Raise Money For GMP Manufacturing & Phase 1 Trial</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>1 - 2 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$100 - 200k</td>
                 </tr>
                 <tr>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Validation Phase</td>
-                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>IND Enablement & clinical validation</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1 2024</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$20M</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>GMP Manufacturing</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Preparation for manufacture of samples for clinical trial  (21 patiient trial) 200 000 mg (600 Litres)</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>8 - 10 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$3.5m - 4.5m</td>
                 </tr>
                 <tr>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>2025 Milestones</td>
-                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>FDA Response & GMP Manufacturing</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Q1-Q4 2025</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$50M</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>IND Enablement</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Process of manufacturing, extended data and results</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>6 - 12 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$200 - 400k</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Phase I Clinical Trials</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Approval of Phase 1 & execution of clinical trial phase 1 - preliminary bio marker endpoint with option for accelerated NDA</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>12 - 16 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$6m - 8m</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Ico Exchange Launch</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Raise Money For Phase II till Market & Phase manufacture</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>2 - 4 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$100 - 200k</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Phase II</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Prove efficacy and safety of the drug on 50 - 100 patients at a minimum</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>24 - 48 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>20 - 50m</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Phase III</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Validation of drug superiority, expansion of the label for other applications and combine capability</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>60- 72 months</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$200 - 300m</td>
+                </tr>
+                <tr>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Manufacturing and Marketing</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Scale up production and launch drug on market</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>6 - 12 months post-approval</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>GMP cost x 5 + marketing budget (TNBC)</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
       </section>
+
     </>
   );
 };
