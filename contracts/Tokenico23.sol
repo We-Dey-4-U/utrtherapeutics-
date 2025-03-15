@@ -20,30 +20,36 @@ contract TokenICO {
     uint256 public soldTokens;
 
     // ✅ Added min & max purchase limits
+     bool public isSaleActive = true;
     uint256 public minPurchase = 100 * 10**18; // Minimum 100 tokens
     uint256 public maxPurchase = 5000 * 10**18; // Maximum 5000 tokens
     mapping(address => uint256) public userPurchases; // Track user purchases
+   
 
+   //A modifier to restrict certain functions to the contract owner.
     modifier onlyOwner() {
         require(msg.sender == owner, "Only contract owner can perform this action");
         _;
     }
-
+    //The constructor sets the deployer of the contract as the owner.
     constructor() {
         owner = msg.sender;
     }
 
+    //Allows the owner to set the ERC-20 token being sold.
     function updateToken(address _tokenAddress) public onlyOwner {
         require(_tokenAddress != address(0), "Invalid token address");
         tokenAddress = _tokenAddress;
     }
 
+     //Sets the price of one token in BNB.
     function updateTokenSalePrice(uint256 _tokenSalePrice) public onlyOwner {
         require(_tokenSalePrice > 0, "Token sale price must be greater than zero");
         tokenSalePrice = _tokenSalePrice;
     }
 
     // ✅ Owner can update purchase limits
+    //Allows the owner to adjust purchase limits.
     function updateMinPurchase(uint256 _min) public onlyOwner {
         require(_min > 0, "Minimum must be greater than zero");
         minPurchase = _min;
@@ -53,15 +59,22 @@ contract TokenICO {
         require(_max > minPurchase, "Max must be greater than min");
         maxPurchase = _max;
     }
-
+      //A safe multiplication function to prevent overflow errors.
     function multiply(uint256 x, uint256 y) internal pure returns (uint256 z) {
         require(y == 0 || (z = x * y) / y == x, "Multiplication overflow");
     }
+      //Enables or disables the token sale.
 
-    function buyToken(uint256 _tokenAmount) public payable {
+   // Ensures the token sale is active.
+    //Ensures a valid token address is set.
+    //Ensures the user is buying more than 0 tokens.
+    //Ensures the correct amount of BNB is sent.
+     function buyToken(uint256 _tokenAmount) public payable {
         require(tokenAddress != address(0), "Token address not set");
         require(_tokenAmount > 0, "Token amount must be greater than zero");
-        require(msg.value == multiply(_tokenAmount, tokenSalePrice), "Incorrect Ether value");
+
+        uint256 totalCost = _tokenAmount * tokenSalePrice;
+        require(msg.value == totalCost, "Incorrect BNB amount sent");
 
         ERC20 token = ERC20(tokenAddress);
         uint256 decimals = token.decimals();
@@ -71,15 +84,17 @@ contract TokenICO {
         require(userPurchases[msg.sender] + scaledAmount <= maxPurchase, "Purchase exceeds maximum limit");
         require(scaledAmount <= token.balanceOf(address(this)), "Not enough tokens left for sale");
 
-        // Transfer tokens to buyer
-        require(token.transfer(msg.sender, scaledAmount), "Token transfer failed");
-
-        // Transfer Ether to owner
-        payable(owner).transfer(msg.value);
-
-        // Track purchases
+        // ✅ Update state before transferring tokens
         userPurchases[msg.sender] += scaledAmount;
         soldTokens += _tokenAmount;
+
+        
+         // Transfer tokens to buyer
+        require(token.transfer(msg.sender, scaledAmount), "Token transfer failed");
+
+        // ✅ Use call() for better gas handling and prevent reentrancy
+        (bool success, ) = payable(owner).call{value: msg.value}("");
+        require(success, "BNB transfer failed");
     }
 
     function getTokenDetails() public view returns (

@@ -1,4 +1,6 @@
-import React, { useState } from "react"; // Import useState
+import React, { useState,useEffect } from "react";
+import toast from "react-hot-toast";
+import { useForm, ValidationError } from "@formspree/react";
 import {
   TiSocialFacebook,
   TiSocialTwitter,
@@ -10,44 +12,22 @@ import { IoCloudDownload } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
 
 const Footer = () => {
-  const [email, setEmail] = useState(""); // Initialize email state
-  const [message, setMessage] = useState(""); // Initialize message state
+  const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
+  const notifyError = (msg) => toast.error(msg, { duration: 2000 });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const [state, handleSubmit] = useForm("xpznvjqe"); // Formspree ID
+  const [message, setMessage] = useState(""); // Declare message state
 
-    if (!email) {
-      setMessage("Please enter a valid email.");
-      return;
-    }
-
-    const mailchimpAudienceId = "YOUR_AUDIENCE_ID"; // Replace with your Mailchimp Audience ID
-    const apiKey = "YOUR_API_KEY"; // Replace with your Mailchimp API Key
-    const dataCenter = apiKey.split("-")[1]; // Mailchimp uses 'usX' as a data center
-
-    const url = `https://${dataCenter}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
-
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Basic ${btoa(`anystring:${apiKey}`)}`,
-      },
-      body: JSON.stringify({
-        email_address: email,
-        status: "subscribed",
-      }),
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
+  useEffect(() => {
+    if (state.succeeded) {
+      notifySuccess("Subscription successful!");
       setMessage("Subscription successful!");
-      setEmail(""); // Clear input
-    } else {
-      setMessage(result.detail || "Subscription failed. Try again.");
+      setTimeout(() => setMessage(""), 3000); // Clear message after 3s
+    } else if (state.errors && state.errors.length > 0) {
+      notifyError("Subscription failed. Please try again.");
+      setMessage("Subscription failed. Please try again.");
     }
-  };
+  }, [state.succeeded, state.errors]); // Ensure it updates on form state change
 
   return (
     <footer className="site-footer footer__ico pos-rel" data-background="assets/img/bg/footer_bg.png">
@@ -60,31 +40,36 @@ const Footer = () => {
               <form onSubmit={handleSubmit}>
                 <input
                   type="email"
+                  id="email"
+                  name="email"
                   placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-                <button type="submit">
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
+                <button type="submit" disabled={state.submitting}>
                   <IoIosSend />
                 </button>
               </form>
               {message && <p style={{ color: "white", marginTop: "10px" }}>{message}</p>}
             </div>
           </div>
+
+
+
+
           <div className="col-lg-8 mt-30">
             <div className="footer__widget text-lg-end">
               <h2>Download Documents</h2>
               <div className="footer__document ul_li_right">
-                <a href="assets/docs/whitepaper.pdf" download="Whitepaper.pdf" className="footer__document-item text-center">
-                  <div className="icon">
-                    <img src="assets/img/icon/pdf.svg" alt="PDF Icon" />
-                  </div>
-                  <span className="title">
-                    <IoCloudDownload />
-                    White Paper
-                  </span>
-                </a>
+              <a href="/assets/doc/Contact%20Form.pdf" download="Contact Form.pdf" className="footer__document-item text-center">
+               <div className="icon">
+               <img src="/assets/img/icon/pdf.svg" alt="PDF Icon" />
+              </div>
+              <span className="title">
+              <IoCloudDownload />
+               Contact Form
+              </span>
+               </a>
 
                 <a href="assets/docs/privacy-policy.pdf" download="PrivacyPolicy.pdf" className="footer__document-item text-center">
                   <div className="icon">
@@ -119,27 +104,27 @@ const Footer = () => {
           <ul className="footer__social ul_li mt-20">
             <li>
               <a href="#!">
-                <TiSocialFacebook />
+              <TiSocialFacebook style={{ fontSize: "30px" }} />
               </a>
             </li>
             <li>
               <a href="#!">
-                <TiSocialTwitter />
+              <TiSocialTwitter style={{ fontSize: "30px" }} />
               </a>
             </li>
             <li>
               <a href="#!">
-                <TiSocialLinkedin />
+              <TiSocialLinkedin style={{ fontSize: "30px" }} />
               </a>
             </li>
             <li>
-              <a href="#!">
-                <TiSocialInstagram />
+              <a href="https://www.instagram.com/utrxtoken?utm_source=qr&igsh=cWE0aGlkaHFrZ28z">
+              <TiSocialInstagram style={{ fontSize: "30px" }} />
               </a>
             </li>
             <li>
               <a href="https://t.me/UTRxToken" target="_blank" rel="noopener noreferrer">
-                <FaTelegramPlane />
+              <FaTelegramPlane style={{ fontSize: "30px" }} />
               </a>
             </li>
           </ul>

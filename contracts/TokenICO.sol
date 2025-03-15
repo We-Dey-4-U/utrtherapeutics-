@@ -45,7 +45,7 @@ contract TokenICO {
     function buyToken(uint256 _tokenAmount) public payable {
         require(tokenAddress != address(0), "Token address not set");
         require(_tokenAmount > 0, "Token amount must be greater than zero");
-        require(msg.value == multiply(_tokenAmount, tokenSalePrice), "Incorrect Ether value");
+        require(msg.value == multiply(_tokenAmount, tokenSalePrice), "Incorrect BNB amount sent");
 
         ERC20 token = ERC20(tokenAddress);
         uint256 decimals = token.decimals();

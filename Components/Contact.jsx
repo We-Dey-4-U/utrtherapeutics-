@@ -6,7 +6,7 @@ const contact = () => {
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.error(msg, { duration: 2000 });
   //FORM
-  const [state, handleSubmit] = useForm("mzbnzpqr");
+  const [state, handleSubmit] = useForm("xpznvjqe");
   if (state.succeeded) {
     notifySuccess("Successfully submitted");
     window.location.reload();
@@ -16,7 +16,7 @@ const contact = () => {
     <section id="contact" class="ico-contact pos-rel">
       <div class="container">
         <div class="ico-contact__wrap">
-          <h2 class="title">Contact with coindox</h2>
+          <h2 class="title">Contact UTRx Support</h2>
           <form onSubmit={handleSubmit}>
             <div class="row">
               <div class="col-lg-6">

@@ -58,7 +58,7 @@ const About = () => {
                 </li>
                 <li>
                   <img src="assets/img/icon/a_arrow.svg" alt="" />
-                  Global Health Market Access with InnovX Token
+                  Global Health Market Access with UTRx Token
                 </li>
               </ul>
             </div>
