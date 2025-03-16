@@ -146,9 +146,9 @@ const Roadmap = () => {
               <tbody>
                 <tr>
                   <td style={{ border: "1px solid white", padding: "10px" }}>FDA Submission & Approval</td>
-                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>IND Submission</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>6 - 9 months</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$5M</td>
+                  <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>FDA and OUS(outside of USA) IND submission already achieved</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>4 years</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$3M</td>
                 </tr>
                 <tr>
                   <td style={{ border: "1px solid white", padding: "10px" }}>Ico Initial Launch</td>
