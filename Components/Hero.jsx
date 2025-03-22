@@ -118,9 +118,9 @@ const Hero = ({
         <div className="row">
           <div className="col-lg-7">
             <div className="hero__content">
-              <h1 className="title mb-45">
-                Participate in the <span>Active $UTR Token</span> ICO Offering!
-              </h1>
+            <h1 style={{ fontSize: "3.3rem", fontWeight: "900", marginBottom: "45px" }}>
+             Participate in the <span style={{ color: "#f9f" }}>Active $UTR Token</span> ICO Offering!
+            </h1>
               <div className="btns">
                 {account ? (
                   <a className="thm-btn" onClick={() => setBuyModel(true)}>
@@ -147,13 +147,15 @@ const Hero = ({
                     {detail?.symbol}
                   </span>
                 </div>
-                <div className="progress">
-                  <div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{
-                      width: `${percentage}%`,
-                    }}
+                <div style={{ width: "100%", backgroundColor: "#e0e0e0", borderRadius: "8px", overflow: "hidden", height: "10px" }}>
+              <div
+                role="progressbar"
+                style={{
+                width: `${percentage}%`,
+                 backgroundColor: "#f9f9",
+                  height: "100%",
+                   transition: "width 0.5s ease-in-out",
+                   }}
                   />
                 </div>
                 <ul className="ul_li_between">
