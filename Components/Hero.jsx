@@ -119,7 +119,7 @@ const Hero = ({
           <div className="col-lg-7">
             <div className="hero__content">
             <h1 style={{ fontSize: "3.3rem", fontWeight: "900", marginBottom: "45px" }}>
-             Participate in the <span style={{ color: "#f9f" }}>Active $UTR Token</span> ICO Offering!
+             Participate in the <span style={{ color: "#f9f" }}>Active $UTRx Token</span> ICO Offering!
             </h1>
               <div className="btns">
                 {account ? (
