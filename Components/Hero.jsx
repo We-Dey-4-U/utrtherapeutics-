@@ -93,34 +93,36 @@ const Hero = ({
 
   return (
     <section
-    className="hero hero__ico pos-rel"
-  style={{
-    backgroundImage: "url('assets/img/about/blackdoc.webp')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    position: "relative", // Ensure child elements stack correctly
-  }}
->
-  {/* Dark Overlay for Better Dimming */}
-  <div
-    style={{
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.9)", // ⬅ Increased darkness
-      zIndex: 1, // Ensure it covers the background
-    }}
-  />
+      className="hero hero__ico pos-re"
+      style={{
+        backgroundImage: "url('assets/img/about/blackdoc.webp')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        position: "relative", // Ensure child elements stack correctly
+        zIndex: 0,
+      }}
+    >
+      {/* Dark Overlay for Better Dimming */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundColor: "rgba(0, 0, 0, 0.9)", // Increased darkness
+          zIndex: 1, // Ensure it covers the background but stays behind content
+        }}
+      />
+  
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="row">
           <div className="col-lg-7">
             <div className="hero__content">
-            <h1 style={{ fontSize: "3.3rem", fontWeight: "900", marginBottom: "45px" }}>
-             Participate in the <span style={{ color: "#f9f" }}>Active $UTRx Token</span> ICO Offering!
-            </h1>
+              <h1 style={{ fontSize: "3.3rem", fontWeight: "900", marginBottom: "45px" }}>
+                Participate in the <span style={{ color: "#f9f" }}>Active $UTRx Token</span> ICO Offering!
+              </h1>
               <div className="btns">
                 {account ? (
                   <a className="thm-btn" onClick={() => setBuyModel(true)}>
@@ -131,31 +133,26 @@ const Hero = ({
                     Connect Your Wallet
                   </a>
                 )}
-
+  
                 <a className="thm-btn thm-btn--dark" onClick={() => ADD_TOKEN_METAMASK()}>
                   Add UTR Token to MetaMask
                 </a>
               </div>
+  
               <div className="hero__progress mt-50">
                 <div className="progress-title ul_li_between">
-                  <span>
-                    <span>Amount Raised -</span> {detail?.soldTokens} Tokens
-                  </span>
-                  <span>
-                    <span>Total ICO Supply -</span>{" "}
-                    {detail?.soldTokens + Number(detail?.tokenBal)}{" "}
-                    {detail?.symbol}
-                  </span>
+                  <span>Amount Raised - {detail?.soldTokens} Tokens</span>
+                  <span>Total ICO Supply - {detail?.soldTokens + Number(detail?.tokenBal)} {detail?.symbol}</span>
                 </div>
                 <div style={{ width: "100%", backgroundColor: "#e0e0e0", borderRadius: "8px", overflow: "hidden", height: "10px" }}>
-              <div
-                role="progressbar"
-                style={{
-                width: `${percentage}%`,
-                 backgroundColor: "#f9f9",
-                  height: "100%",
-                   transition: "width 0.5s ease-in-out",
-                   }}
+                  <div
+                    role="progressbar"
+                    style={{
+                      width: `${percentage}%`,
+                      backgroundColor: "#f9f9",
+                      height: "100%",
+                      transition: "width 0.5s ease-in-out",
+                    }}
                   />
                 </div>
                 <ul className="ul_li_between">
@@ -166,76 +163,53 @@ const Hero = ({
               </div>
             </div>
           </div>
+  
           <div className="col-lg-5">
-            <div className="hero__explore-wrap text-center">
+            <div className="hero__explore-wrap text-center" style={{ position: "relative", zIndex: 3 }}>
               <div className="hero__explore text-center">
                 <div className="scroll-down" />
                 <span>Explore the Opportunities</span>
-                <p
-                  style={{
-                    fontSize: "16px", // Adjusted for readability
-                    marginTop: "10px", // Added margin to separate from title
-                  }}
-                >
-                   Discover how UTR Therapeutics is pioneering a new era in biotech by 
-                   integrating cutting-edge mRNA overwriting technology with blockchain-driven 
-                    innovation. Explore our decentralized approach to medical research funding, 
-                    AI-driven health collaborations, and tokenized patient support systems, 
-                     all designed to transform the future of healthcare..
+                <p style={{ fontSize: "16px", marginTop: "10px" }}>
+                  Discover how UTR Therapeutics is pioneering a new era in biotech...
                 </p>
                 <button 
-              className="thm-btn thm-btn--dark"
-              onClick={() => window.open("https://utrtherapeutics.com/", "_blank", "noopener,noreferrer")}
-              >
-             Read More
-           </button>
+                  className="thm-btn thm-btn--dark"
+                  onClick={() => window.open("https://utrtherapeutics.com/", "_blank", "noopener,noreferrer")}
+                >
+                  Read More
+                </button>
               </div>
-              <div
-      className="hero__countdown"
-      style={{
-        marginTop: isMobile ? "-80px" : "0px", // ✅ Fixed error by checking `isMobile`
-        textAlign: "center",
-        background: "linear-gradient(135deg, rgb(8, 2, 0), #feb47b)",
-        padding: "20px",
-        borderRadius: "10px",
-        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
-        color: "#fff",
-        fontFamily: "'Poppins', sans-serif",
-      }}
-    >
-      <h6 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "10px" }}>
-        ICO Ends In:
-      </h6>
-      <h3
-        className="countdown-timer"
-        style={{
-          fontSize: "32px",
-          fontWeight: "bold",
-          letterSpacing: "2px",
-          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
-        }}
-      >
-        {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
-      </h3>
-    </div>
+  
+              <div className="hero__countdown"
+                style={{
+                  marginTop: isMobile ? "-80px" : "0px",
+                  textAlign: "center",
+                  background: "linear-gradient(135deg, rgb(8, 2, 0), #feb47b)",
+                  padding: "20px",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+                  color: "#fff",
+                  fontFamily: "'Poppins', sans-serif",
+                }}
+              >
+                <h6 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "10px" }}>ICO Ends In:</h6>
+                <h3 className="countdown-timer" style={{ fontSize: "32px", fontWeight: "bold", letterSpacing: "2px", textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)" }}>
+                  {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+                </h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
+  
       <div className="hero__shape">
-        <div className="shape shape--1">
-          <img src="assets/img/shape/h_shape.png" alt="" />
-        </div>
-        <div className="shape shape--2">
-          <img src="assets/img/shape/h_shape2.png" alt="" />
-        </div>
-        <div className="shape shape--3">
-          <img src="assets/img/shape/h_shape3.png" alt="" />
-        </div>
+        <div className="shape shape--1"><img src="assets/img/shape/h_shape.png" alt="" /></div>
+        <div className="shape shape--2"><img src="assets/img/shape/h_shape2.png" alt="" /></div>
+        <div className="shape shape--3"><img src="assets/img/shape/h_shape3.png" alt="" /></div>
       </div>
       <div className="hero__coin"></div>
     </section>
   );
 };
-
+  
 export default Hero;
