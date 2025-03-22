@@ -9,7 +9,7 @@ const SideBar = () => {
       {/* side-mobile-menu start */}
       <nav className="side-mobile-menu">
         <a className="header__logo mb-30" href="#!">
-          <img src="assets/img/logo/inox22.png" alt="" />
+          <img src="assets/img/logo/utrlogo.png" alt="" />
         </a>
         <div className="header-mobile-search">
           <form role="search" method="get" action="#">

@@ -95,7 +95,7 @@ const Hero = ({
     <section
     className="hero hero__ico pos-rel"
   style={{
-    backgroundImage: "url('assets/img/about/hospital.jpg')",
+    backgroundImage: "url('assets/img/about/blackdoc.webp')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
