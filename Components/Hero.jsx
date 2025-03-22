@@ -17,7 +17,12 @@ const Hero = ({
   const connectWallet = async () => {
     setLoader(true);
     const address = await CONNECT_WALLET();
-    setAccount(address);
+    console.log("Connected Address:", address); // Debug log
+    if (address) {
+      setAccount(address);
+    } else {
+      console.error("Failed to retrieve wallet address.");
+    }
   };
 
   const [percentage, setPercentage] = useState();

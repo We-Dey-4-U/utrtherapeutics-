@@ -13,26 +13,41 @@ const Header = ({
 }) => {
   const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
 
+  // Ensure handleAccountsChanged is defined before useEffect
+  const handleAccountsChanged = (accounts) => {
+    if (accounts.length > 0) {
+      console.log("Accounts changed:", accounts[0]);
+      setAccount(accounts[0]); // Update account state
+    } else {
+      console.log("No accounts found");
+      setAccount(null);
+    }
+  };
+
   useEffect(() => {
     if (typeof window.ethereum !== "undefined") {
       setIsMetaMaskInstalled(true);
+
+      // Fetch initial account if already connected
+      window.ethereum
+        .request({ method: "eth_accounts" })
+        .then((accounts) => {
+          if (accounts.length > 0) {
+            setAccount(accounts[0]);
+          }
+        })
+        .catch((err) => console.error("Error fetching accounts:", err));
+
+      // Listen for account changes
       window.ethereum.on("accountsChanged", handleAccountsChanged);
     }
 
     return () => {
       if (typeof window.ethereum !== "undefined") {
-        window.ethereum.removeListener(
-          "accountsChanged",
-          handleAccountsChanged
-        );
+        window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
       }
     };
   }, []);
-
-  const handleAccountsChanged = (accounts) => {
-    console.log("Accounts changed:", accounts[0]);
-    setAccount(accounts[0]);
-  };
 
   const connectMetaMask = async () => {
     if (typeof window.ethereum !== "undefined") {
@@ -40,10 +55,12 @@ const Header = ({
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
-        setAccount(accounts[0]);
-        console.log("Connected accounts:", accounts[0]);
+        if (accounts.length > 0) {
+          setAccount(accounts[0]);
+          console.log("Connected:", accounts[0]);
+        }
       } catch (error) {
-        console.error("Error connecting to MetaMask:", error);
+        console.error("MetaMask connection error:", error);
       }
     } else {
       console.error("MetaMask is not installed.");
@@ -133,18 +150,14 @@ const Header = ({
               </div>
               {account ? (
                 <div className="header__account">
-                  <a
-                    onClick={() =>
-                      navigator.clipboard.writeText(detail?.address)
-                    }
-                  >
+                  <a onClick={() => navigator.clipboard.writeText(detail?.address)}>
                     {shortenAddress(detail?.address)} :{" "}
                     {detail?.maticBal.slice(0, 6)} {currency}
                   </a>
                 </div>
               ) : (
                 <div className="header__account">
-                  <a onClick={() => connectMetaMask()}>Connect Wallet</a>
+                  <a onClick={connectMetaMask}>Connect Wallet</a>
                 </div>
               )}
             </div>
