@@ -28,7 +28,7 @@ const About = () => {
                 </p>
                 <div className="center-button-container">
              <button 
-              className="transparent"
+              className="thm-btn thm-btn--dark"
               onClick={() => window.open("https://utrtherapeutics.com/", "_blank", "noopener,noreferrer")}
               >
              Read More

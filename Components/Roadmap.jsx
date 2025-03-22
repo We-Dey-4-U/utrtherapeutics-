@@ -11,12 +11,15 @@ import {
 } from "recharts";
 
 const utrxData = [
-  { stage: "IND Submission", open: 2.5, close: 3.0, high: 3.5, low: 2.2 },
-  { stage: "IND Approval", open: 5.0, close: 6.0, high: 7.0, low: 4.5 },
-  { stage: "Phase 1 Commencement", open: 10.0, close: 12.0, high: 14.0, low: 9.0 },
-  { stage: "Phase 1 Completion", open: 20.0, close: 25.0, high: 28.0, low: 18.0 },
-  { stage: "Accelerated NDA Application", open: 40.0, close: 50.0, high: 55.0, low: 36.0 },
-  { stage: "Sales to Patients", open: 80.0, close: 100.0, high: 110.0, low: 72.0 },
+  { stage: "FDA Submission & Approval", open: 0.8, close: 1.2, high: 1.5, low: 0.5 },
+  { stage: "Ico Initial Launch", open: 2.5, close: 3.0, high: 3.5, low: 2.2 },
+  { stage: "GMP Manufacturing", open: 4.5, close: 6.0, high: 7.0, low: 4.0 },
+  { stage: "IND Enablement", open: 8.0, close: 10.0, high: 12.0, low: 7.0 },
+  { stage: "Phase I Clinical Trials", open: 14.0, close: 18.0, high: 20.0, low: 12.0 },
+  { stage: "Ico Exchange Launch", open: 25.0, close: 30.0, high: 35.0, low: 22.0 },
+  { stage: "Phase II", open: 40.0, close: 50.0, high: 55.0, low: 36.0 },
+  { stage: "Phase III", open: 65.0, close: 80.0, high: 90.0, low: 55.0 },
+  { stage: "Manufacturing and Marketing", open: 120.0, close: 150.0, high: 170.0, low: 100.0 },
 ];
 
 
@@ -97,34 +100,53 @@ const Roadmap = () => {
         </div>
       </section>
 
-      {/* UTRX Token Growth Chart Section */}
-      <section id="utrx-chart" className="chart-section pt-100 pb-100 text-center">
-        <div className="container">
-          <h1 className="chart-title" style={{ marginBottom: "20px" }}>
-            UTRx Token Value Growth By Stage Of Development
-          </h1>
-          <div style={{ width: "100%", height: 400 }}>
-            <ResponsiveContainer width="100%" height="100%">
-              <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-                <XAxis dataKey="stage" tick={{ fill: "#fff" }} />
-                <YAxis tick={{ fill: "#fff" }} tickFormatter={(value) => `$${value}`} />
-                <Tooltip
-                contentStyle={{ backgroundColor: "#222", color: "#fff" }}
-                formatter={(value, name) => {
-                const labelMap = { high: "High", low: "Low", open: "Open" };
-                 return [`$${value}`, labelMap[name] || name];
-                  }}
-                />
-                <Line type="monotone" dataKey="high" stroke="white" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="low" stroke="white" strokeWidth={2} dot={false} />
-                <Bar dataKey="open" fill="#28a745" barSize={20} />
-              </ComposedChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </section>
+     {/* UTRX Token Growth Chart Section */}
+{/* UTRX Token Growth Chart Section */}
+<section id="utrx-chart" className="chart-section pt-100 pb-100 text-center">
+  <div className="container">
+    <h1 className="chart-title" style={{ marginBottom: "20px" }}>
+      UTRx Token Value Growth By Stage Of Development
+    </h1>
+    <div style={{ width: "100%", height: 400 }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <ComposedChart data={utrxData} margin={{ top: 20, right: 30, left: 20, bottom: 10 }}>
+          <CartesianGrid strokeDasharray="3 3" stroke="#444" />
+          
+          {/* Improved X-Axis for long labels */}
+          <XAxis
+  dataKey="stage"
+  tick={{
+    fill: "#fff",
+    fontSize: "12px",
+    overflow: "visible", // Ensure text isn't clipped
+  }}
+  angle={-34} // More tilt for better visibility
+  textAnchor="end"
+  interval={0} // Show all labels
+  dx={-10} // Further adjust horizontal position
+  dy={20} // Push labels even lower
+  height={110} // More height for full visibility
+/>
 
+          <YAxis tick={{ fill: "#fff" }} tickFormatter={(value) => `$${value}`} />
+          <Tooltip
+            contentStyle={{ backgroundColor: "#222", color: "#fff" }}
+            formatter={(value, name) => {
+              const labelMap = { high: "High", low: "Low", open: "Open", close: "Close" };
+              return [`$${value}`, labelMap[name] || name];
+            }}
+          />
+          {/* Lines for high, low, and close values */}
+          <Line type="monotone" dataKey="high" stroke="#ffcc00" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="low" stroke="#ff4444" strokeWidth={2} dot={false} />
+          <Line type="monotone" dataKey="close" stroke="#00bfff" strokeWidth={2} dot={false} />
+          {/* Bar for open value */}
+          <Bar dataKey="open" fill="#28a745" barSize={20} />
+        </ComposedChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+</section>
 
 
         {/* Milestone Table Section */}
@@ -148,10 +170,10 @@ const Roadmap = () => {
                   <td style={{ border: "1px solid white", padding: "10px" }}>FDA Submission & Approval</td>
                   <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>FDA and OUS(outside of USA) IND submission already achieved</td>
                   <td style={{ border: "1px solid white", padding: "10px" }}>4 years</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$3M</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$5M</td>
                 </tr>
                 <tr>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>Ico Initial Launch</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>Ico Initial Launch Build</td>
                   <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Raise Money For GMP Manufacturing & Phase 1 Trial</td>
                   <td style={{ border: "1px solid white", padding: "10px" }}>1 - 2 months</td>
                   <td style={{ border: "1px solid white", padding: "10px" }}>$100 - 200k</td>
@@ -178,7 +200,7 @@ const Roadmap = () => {
                   <td style={{ border: "1px solid white", padding: "10px" }}>Ico Exchange Launch</td>
                   <td style={{ border: "1px solid white", padding: "10px", width: "300px" }}>Raise Money For Phase II till Market & Phase manufacture</td>
                   <td style={{ border: "1px solid white", padding: "10px" }}>2 - 4 months</td>
-                  <td style={{ border: "1px solid white", padding: "10px" }}>$100 - 200k</td>
+                  <td style={{ border: "1px solid white", padding: "10px" }}>$400 - 450k</td>
                 </tr>
                 <tr>
                   <td style={{ border: "1px solid white", padding: "10px" }}>Phase II</td>

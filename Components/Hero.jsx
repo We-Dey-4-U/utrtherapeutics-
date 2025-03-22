@@ -12,6 +12,7 @@ const Hero = ({
 }) => {
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.error(msg, { duration: 2000 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const connectWallet = async () => {
     setLoader(true);
@@ -20,6 +21,40 @@ const Hero = ({
   };
 
   const [percentage, setPercentage] = useState();
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth < 768);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Set ICO end date to 4 months from today
+    const icoEndDate = new Date();
+    icoEndDate.setMonth(icoEndDate.getMonth() + 4);
+
+    const updateCountdown = () => {
+      const now = new Date();
+      const difference = icoEndDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / (1000 * 60)) % 60),
+          seconds: Math.floor((difference / 1000) % 60),
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    // Update countdown every second
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const calculatePercentage = () => {
@@ -50,15 +85,41 @@ const Hero = ({
     notifySuccess(response);
   };
 
+
+
+
+
+
+
   return (
-    <section className="hero hero__ico pos-rel">
-      <div className="hero__bg" data-background="assets/img/bg/hero_bg.png" />
-      <div className="container">
+    <section
+    className="hero hero__ico pos-rel"
+  style={{
+    backgroundImage: "url('assets/img/about/hospital.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    position: "relative", // Ensure child elements stack correctly
+  }}
+>
+  {/* Dark Overlay for Better Dimming */}
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.9)", // ⬅ Increased darkness
+      zIndex: 1, // Ensure it covers the background
+    }}
+  />
+      <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="row">
           <div className="col-lg-7">
             <div className="hero__content">
               <h1 className="title mb-45">
-              Participate in the <span>Active $UTR Token</span> ICO Offering!
+                Participate in the <span>Active $UTR Token</span> ICO Offering!
               </h1>
               <div className="btns">
                 {account ? (
@@ -71,10 +132,7 @@ const Hero = ({
                   </a>
                 )}
 
-                <a
-                  className="thm-btn thm-btn--dark"
-                  onClick={() => ADD_TOKEN_METAMASK()}
-                >
+                <a className="thm-btn thm-btn--dark" onClick={() => ADD_TOKEN_METAMASK()}>
                   Add UTR Token to MetaMask
                 </a>
               </div>
@@ -111,10 +169,53 @@ const Hero = ({
               <div className="hero__explore text-center">
                 <div className="scroll-down" />
                 <span>Explore the Opportunities</span>
+                <p
+                  style={{
+                    fontSize: "16px", // Adjusted for readability
+                    marginTop: "10px", // Added margin to separate from title
+                  }}
+                >
+                   Discover how UTR Therapeutics is pioneering a new era in biotech by 
+                   integrating cutting-edge mRNA overwriting technology with blockchain-driven 
+                    innovation. Explore our decentralized approach to medical research funding, 
+                    AI-driven health collaborations, and tokenized patient support systems, 
+                     all designed to transform the future of healthcare..
+                </p>
+                <button 
+              className="thm-btn thm-btn--dark"
+              onClick={() => window.open("https://utrtherapeutics.com/", "_blank", "noopener,noreferrer")}
+              >
+             Read More
+           </button>
               </div>
-              <div className="hero__countdown">
-                <h6 className="text-center">ICO Launch Countdown</h6>
-              </div>
+              <div
+      className="hero__countdown"
+      style={{
+        marginTop: isMobile ? "-80px" : "0px", // ✅ Fixed error by checking `isMobile`
+        textAlign: "center",
+        background: "linear-gradient(135deg, rgb(8, 2, 0), #feb47b)",
+        padding: "20px",
+        borderRadius: "10px",
+        boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+        color: "#fff",
+        fontFamily: "'Poppins', sans-serif",
+      }}
+    >
+      <h6 style={{ fontSize: "18px", fontWeight: "600", marginBottom: "10px" }}>
+        ICO Ends In:
+      </h6>
+      <h3
+        className="countdown-timer"
+        style={{
+          fontSize: "32px",
+          fontWeight: "bold",
+          letterSpacing: "2px",
+          textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        {timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s
+      </h3>
+    </div>
             </div>
           </div>
         </div>
@@ -130,26 +231,7 @@ const Hero = ({
           <img src="assets/img/shape/h_shape3.png" alt="" />
         </div>
       </div>
-      <div className="hero__coin">
-        <div className="coin coin--1">
-          <img src="assets/img/icon/coin1.png" alt="" />
-        </div>
-        <div className="coin coin--2">
-          <img src="assets/img/icon/coin2.png" alt="" />
-        </div>
-        <div className="coin coin--3">
-          <img src="assets/img/icon/coin3.png" alt="" />
-        </div>
-        <div className="coin coin--4">
-          <img src="assets/img/icon/coin4.png" alt="" />
-        </div>
-        <div className="coin coin--5">
-          <img src="assets/img/icon/coin5.png" alt="" />
-        </div>
-        <div className="coin coin--6">
-          <img src="assets/img/icon/coin6.png" alt="" />
-        </div>
-      </div>
+      <div className="hero__coin"></div>
     </section>
   );
 };

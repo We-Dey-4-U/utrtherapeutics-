@@ -21,8 +21,8 @@ contract TokenICO {
 
     // ✅ Added min & max purchase limits
      bool public isSaleActive = true;
-    uint256 public minPurchase = 100 * 10**18; // Minimum 100 tokens
-    uint256 public maxPurchase = 5000 * 10**18; // Maximum 5000 tokens
+    uint256 public minPurchase = 10 * 10**18; // Minimum 100 tokens
+    uint256 public maxPurchase = 1_000_000 * 10**18; // Maximum 1,000,000 tokens
     mapping(address => uint256) public userPurchases; // Track user purchases
    
 

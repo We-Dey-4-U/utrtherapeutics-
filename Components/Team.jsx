@@ -19,11 +19,11 @@ const Team = () => {
 
           <div class="team__item">
             <div class="avatar">
-              <img src="assets/img/team/img_01.png" alt="" />
+              <img src="assets/img/team/awah.jpg" alt="" />
             </div>
             <div class="team__info text-center mb-20">
-              <h3>Michael Johnson</h3>
-              <span>Developer</span>
+              <h3>Dr. Chidiebere Awah M.D, Ph.D</h3>
+              <span>Founder/Ceo</span>
             </div>
             <div class="team__social ul_li_center">
               <ul class="team__social-link link-left ul_li">
@@ -59,11 +59,11 @@ const Team = () => {
 
           <div class="team__item">
             <div class="avatar">
-              <img src="assets/img/team/img_02.png" alt="" />
+              <img src="assets/img/team/dan.jpg" alt="" />
             </div>
             <div class="team__info text-center mb-20">
-              <h3>Nathaniel Lewis</h3>
-              <span>Founder & CO</span>
+              <h3> Daniel Asuzu</h3>
+              <span>IT Technology Lead</span>
             </div>
             <div class="team__social ul_li_center">
               <ul class="team__social-link link-left ul_li">
@@ -99,11 +99,168 @@ const Team = () => {
           
           <div class="team__item">
             <div class="avatar">
-              <img src="assets/img/team/ikenna.png" alt="" />
+              <img src="assets/img/team/math.jpg" alt="" />
+            </div>
+            <div class="team__info text-center mb-20">
+            <h3>Matt Mezer</h3>
+              <span>Business and Operations, MBA</span>
+            </div>
+            <div class="team__social ul_li_center">
+              <ul class="team__social-link link-left ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialFacebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialTwitter />
+                  </a>
+                </li>
+              </ul>
+              <span class="h-icon">
+                <FaPlus />
+              </span>
+              <ul class="team__social-link link-right ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialInstagram />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="team__item">
+            <div class="avatar">
+              <img src="assets/img/team/img_03.pn" alt="" />
+            </div>
+            <div class="team__info text-center mb-20">
+              <h3>Rebecca Obikunle</h3>
+              <span>Marketing Lead</span>
+            </div>
+            <div class="team__social ul_li_center">
+              <ul class="team__social-link link-left ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialFacebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialTwitter />
+                  </a>
+                </li>
+              </ul>
+              <span class="h-icon">
+                <FaPlus />
+              </span>
+              <ul class="team__social-link link-right ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialInstagram />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team__item">
+            <div class="avatar">
+              <img src="assets/img/team/img_04.pn" alt="" />
+            </div>
+            <div class="team__info text-center mb-20">
+              <h3>Ugochukwu Ibeh</h3>
+              <span>Blockchain Developer</span>
+            </div>
+            <div class="team__social ul_li_center">
+              <ul class="team__social-link link-left ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialFacebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialTwitter />
+                  </a>
+                </li>
+              </ul>
+              <span class="h-icon">
+                <FaPlus />
+              </span>
+              <ul class="team__social-link link-right ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialInstagram />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team__item">
+            <div class="avatar">
+              <img src="assets/img/team/img_04.pn" alt="" />
+            </div>
+            <div class="team__info text-center mb-20">
+              <h3>Okenwa Orji</h3>
+              <span>Blockchain Developer</span>
+            </div>
+            <div class="team__social ul_li_center">
+              <ul class="team__social-link link-left ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialFacebook />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialTwitter />
+                  </a>
+                </li>
+              </ul>
+              <span class="h-icon">
+                <FaPlus />
+              </span>
+              <ul class="team__social-link link-right ul_li">
+                <li>
+                  <a href="#!">
+                    <TiSocialLinkedin />
+                  </a>
+                </li>
+                <li>
+                  <a href="#!">
+                    <TiSocialInstagram />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="team__item">
+            <div class="avatar">
+              <img src="assets/img/team/ikenna3.jpg" alt="" />
             </div>
             <div class="team__info text-center mb-20">
               <h3>Chieke Ikenna</h3>
-              <span>developer</span>
+              <span>Blockchain Developer</span>
             </div>
             <div class="team__social ul_li_center">
               <ul class="team__social-link link-left ul_li">
@@ -135,82 +292,8 @@ const Team = () => {
               </ul>
             </div>
           </div>
-          <div class="team__item">
-            <div class="avatar">
-              <img src="assets/img/team/img_03.png" alt="" />
-            </div>
-            <div class="team__info text-center mb-20">
-              <h3>Timothy Young</h3>
-              <span>Designer</span>
-            </div>
-            <div class="team__social ul_li_center">
-              <ul class="team__social-link link-left ul_li">
-                <li>
-                  <a href="#!">
-                    <TiSocialFacebook />
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <TiSocialTwitter />
-                  </a>
-                </li>
-              </ul>
-              <span class="h-icon">
-                <FaPlus />
-              </span>
-              <ul class="team__social-link link-right ul_li">
-                <li>
-                  <a href="#!">
-                    <TiSocialLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <TiSocialInstagram />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="team__item">
-            <div class="avatar">
-              <img src="assets/img/team/img_04.png" alt="" />
-            </div>
-            <div class="team__info text-center mb-20">
-              <h3>David Williams</h3>
-              <span>Consultant</span>
-            </div>
-            <div class="team__social ul_li_center">
-              <ul class="team__social-link link-left ul_li">
-                <li>
-                  <a href="#!">
-                    <TiSocialFacebook />
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <TiSocialTwitter />
-                  </a>
-                </li>
-              </ul>
-              <span class="h-icon">
-                <FaPlus />
-              </span>
-              <ul class="team__social-link link-right ul_li">
-                <li>
-                  <a href="#!">
-                    <TiSocialLinkedin />
-                  </a>
-                </li>
-                <li>
-                  <a href="#!">
-                    <TiSocialInstagram />
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+
+
         </div>
       </div>
       <div class="team__shape">

@@ -12,7 +12,7 @@ import erc20 from "./ERC20.json";
 export const TOKEN_ADDRESS = "0x45762e0070F9F18E78F57e859d020324c90f0F6C";
 export const ERC20_ABI = erc20.abi;
 
-//ACCOUNT ADDRESS USED IN CREATING THE CONTRACTS
+//ACCONT ADDRESS USD INCREATING THE CONTRACTS
 export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
 
 
@@ -164,12 +164,9 @@ export const CONNECT_WALLET = async () => {
 const fetchContract = (address, abi, signer) =>
   new ethers.Contract(address, abi, signer);
 
-
-
 export const TOKEN_ICO_CONTRACT = async () => {
   try {
     const web3Modal = new Web3Modal();
-   // web3Modal.clearCachedProvider(); // Clear cached provider to ensure fresh connection Keep it if you want users to manually reconnect every time. Remove it if you want a smoother user experience with automatic reconnection
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
@@ -180,9 +177,6 @@ export const TOKEN_ICO_CONTRACT = async () => {
     console.log("Something went wrong while connecting with contract", error);
   }
 };
-
-
-
 
 export const ERC20 = async (ADDRESS) => {
   try {

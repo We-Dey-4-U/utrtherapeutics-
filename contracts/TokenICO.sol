@@ -10,13 +10,12 @@ interface ERC20 {
     function symbol() external view returns (string memory);
     function totalSupply() external view returns (uint256);
     function name() external view returns (string memory);
-    function decimals() external view returns (uint8); // Added decimals
 }
 
 contract TokenICO {
     address public owner;
     address public tokenAddress;
-    uint256 public tokenSalePrice;
+    uint256 public tokenSalePrice; // In wei per token
     uint256 public soldTokens;
 
     modifier onlyOwner() {
@@ -29,46 +28,27 @@ contract TokenICO {
     }
 
     function updateToken(address _tokenAddress) public onlyOwner {
-        require(_tokenAddress != address(0), "Invalid token address");
         tokenAddress = _tokenAddress;
     }
 
     function updateTokenSalePrice(uint256 _tokenSalePrice) public onlyOwner {
-        require(_tokenSalePrice > 0, "Token sale price must be greater than zero");
         tokenSalePrice = _tokenSalePrice;
     }
 
-    function multiply(uint256 x, uint256 y) internal pure returns (uint256 z) {
-        require(y == 0 || (z = x * y) / y == x, "Multiplication overflow");
-    }
-
     function buyToken(uint256 _tokenAmount) public payable {
-        require(tokenAddress != address(0), "Token address not set");
-        require(_tokenAmount > 0, "Token amount must be greater than zero");
-        require(msg.value == multiply(_tokenAmount, tokenSalePrice), "Incorrect BNB amount sent");
-
+        uint256 amountWithDecimals = _tokenAmount * 1e18;
+        require(msg.value == amountWithDecimals * tokenSalePrice, "Incorrect Ether value");
+        
         ERC20 token = ERC20(tokenAddress);
-        uint256 decimals = token.decimals();
-        uint256 scaledAmount = _tokenAmount * (10 ** decimals);
+        require(amountWithDecimals <= token.balanceOf(address(this)), "Not enough tokens left for sale");
+        require(token.transfer(msg.sender, amountWithDecimals), "Token transfer failed");
 
-        require(scaledAmount <= token.balanceOf(address(this)), "Not enough tokens left for sale");
-
-        // Transfer tokens to buyer
-        require(token.transfer(msg.sender, scaledAmount), "Token transfer failed");
-
-        // Transfer Ether to owner
         payable(owner).transfer(msg.value);
-
         soldTokens += _tokenAmount;
     }
 
     function getTokenDetails() public view returns (
-        string memory name,
-        string memory symbol,
-        uint256 balance,
-        uint256 supply,
-        uint256 tokenPrice,
-        address tokenAddr
+        string memory name, string memory symbol, uint256 balance, uint256 supply, uint256 price, address tokenAddr
     ) {
         ERC20 token = ERC20(tokenAddress);
         return (
@@ -85,7 +65,6 @@ contract TokenICO {
         ERC20 token = ERC20(tokenAddress);
         uint256 balance = token.balanceOf(address(this));
         require(balance > 0, "No tokens to withdraw");
-
-        require(token.transfer(owner, balance), "Token transfer failed");
+        require(token.transfer(owner, balance), "Token withdrawal failed");
     }
 }
