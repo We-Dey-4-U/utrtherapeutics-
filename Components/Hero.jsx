@@ -63,14 +63,14 @@ const Hero = ({
   }, []);
 
 
-  
+
 
   useEffect(() => {
     const calculatePercentage = () => {
         if (!detail) return;
 
         const tokenSold = detail?.soldTokens ?? 0;
-        const tokenTotalSupply = (Number(detail?.tokenBal) ?? 0) + tokenSold;
+        const tokenTotalSupply = Number(detail?.tokenBal) ?? 1; // Remove `soldTokens` from total
 
         if (tokenTotalSupply === 0) {
             console.error("Token sale balance is zero, cannot calculate percentage.");
@@ -80,11 +80,10 @@ const Hero = ({
         }
     };
 
-    calculatePercentage();
+    const timer = setTimeout(calculatePercentage, 1000);
 
-    const timer = setInterval(calculatePercentage, 2000); // Refresh progress every 2 seconds
-    return () => clearInterval(timer);
-}, [detail?.soldTokens, detail?.tokenBal]);
+    return () => clearTimeout(timer);
+}, [detail]);
 
 
 
@@ -152,8 +151,14 @@ const Hero = ({
   
               <div className="hero__progress mt-50">
                 <div className="progress-title ul_li_between">
-                <span>Amount Raised - {detail?.soldTokens} Tokens</span>
-                <span>Total ICO Supply - {Number(detail?.soldTokens) + Number(detail?.tokenBal)} {detail?.symbol}</span>
+                <span>
+                    <span>Raised -</span> {detail?.soldTokens} UTRx Tokens
+                  </span>
+                  <span>
+                   <span>Total ICO -</span>{" "}
+                   {Number(detail?.tokenBal)}{" "} 
+                   {detail?.symbol}
+                   </span>
                 </div>
                 <div style={{ width: "100%", backgroundColor: "#e0e0e0", borderRadius: "8px", overflow: "hidden", height: "10px" }}>
                   <div
@@ -174,6 +179,8 @@ const Hero = ({
               </div>
             </div>
           </div>
+
+
   
           <div className="col-lg-5">
             <div className="hero__explore-wrap text-center" style={{ position: "relative", zIndex: 3 }}>
