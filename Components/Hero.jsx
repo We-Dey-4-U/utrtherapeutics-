@@ -13,6 +13,7 @@ const Hero = ({
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
   const notifyError = (msg) => toast.error(msg, { duration: 2000 });
   const [isMobile, setIsMobile] = useState(false);
+  const [percentage, setPercentage] = useState(0);
 
   const connectWallet = async () => {
     setLoader(true);
@@ -25,7 +26,7 @@ const Hero = ({
     }
   };
 
-  const [percentage, setPercentage] = useState();
+ // const [percentage, setPercentage] = useState();
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
 
@@ -61,27 +62,32 @@ const Hero = ({
     return () => clearInterval(timer);
   }, []);
 
+
+  
+
   useEffect(() => {
     const calculatePercentage = () => {
-      const tokenSold = detail?.soldTokens ?? 0;
-      const tokenTotalSupply =
-        detail?.soldTokens + Number(detail?.tokenBal) * 1 ?? 1;
+        if (!detail) return;
 
-      const percentageNew = (tokenSold / tokenTotalSupply) * 100;
+        const tokenSold = detail?.soldTokens ?? 0;
+        const tokenTotalSupply = (Number(detail?.tokenBal) ?? 0) + tokenSold;
 
-      if (tokenTotalSupply === 0) {
-        console.error(
-          "Token sale balance is zero, cannot calculate percentage."
-        );
-      } else {
-        setPercentage(percentageNew);
-      }
+        if (tokenTotalSupply === 0) {
+            console.error("Token sale balance is zero, cannot calculate percentage.");
+            setPercentage(0);
+        } else {
+            setPercentage((tokenSold / tokenTotalSupply) * 100);
+        }
     };
 
-    const timer = setTimeout(calculatePercentage, 1000);
+    calculatePercentage();
 
-    return () => clearTimeout(timer);
-  }, [detail]);
+    const timer = setInterval(calculatePercentage, 2000); // Refresh progress every 2 seconds
+    return () => clearInterval(timer);
+}, [detail?.soldTokens, detail?.tokenBal]);
+
+
+
 
   const ADD_TOKEN_METAMASK = async () => {
     setLoader(true);
@@ -146,8 +152,8 @@ const Hero = ({
   
               <div className="hero__progress mt-50">
                 <div className="progress-title ul_li_between">
-                  <span>Amount Raised - {detail?.soldTokens} Tokens</span>
-                  <span>Total ICO Supply - {detail?.soldTokens + Number(detail?.tokenBal)} {detail?.symbol}</span>
+                <span>Amount Raised - {detail?.soldTokens} Tokens</span>
+                <span>Total ICO Supply - {Number(detail?.soldTokens) + Number(detail?.tokenBal)} {detail?.symbol}</span>
                 </div>
                 <div style={{ width: "100%", backgroundColor: "#e0e0e0", borderRadius: "8px", overflow: "hidden", height: "10px" }}>
                   <div

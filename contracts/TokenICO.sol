@@ -29,6 +29,7 @@ contract TokenICO {
 
     function updateToken(address _tokenAddress) public onlyOwner {
         tokenAddress = _tokenAddress;
+        resetSale(); // Reset token sale state when updating token
     }
 
     function updateTokenSalePrice(uint256 _tokenSalePrice) public onlyOwner {
@@ -45,6 +46,10 @@ contract TokenICO {
 
         payable(owner).transfer(msg.value);
         soldTokens += _tokenAmount;
+    }
+
+    function resetSale() public onlyOwner {
+        soldTokens = 0; // Reset progress when starting a new sale
     }
 
     function getTokenDetails() public view returns (
