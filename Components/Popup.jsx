@@ -29,7 +29,7 @@ const Popup = ({
       <div class="container">
         <div class="ico-contact__wrap">
           <h2 class="title ">
-            Buy Token <strong onClick={() => setBuyModel(false)}>X</strong>
+            Buy UTRx <strong onClick={() => setBuyModel(false)}>Token</strong>
           </h2>
           <div>
             <div class="row">

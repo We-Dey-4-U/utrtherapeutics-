@@ -9,7 +9,7 @@ const donate = ({ setOpenDonate, detail, currency, DONATE }) => {
         <div class="ico-contact__wrap">
           <h2 class="title ">
             Donate {currency}{" "}
-            <strong onClick={() => setOpenDonate(false)}>X</strong>
+            <strong onClick={() => setOpenDonate(false)}></strong>
           </h2>
           <div>
             <div class="row">

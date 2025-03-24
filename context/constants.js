@@ -6,10 +6,11 @@ import axios from "axios";
 //IMPORT CONTRACT ABI
 import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
+//utrx 10mil token address 0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
 //inx token address 0x45762e0070F9F18E78F57e859d020324c90f0F6C
 //utr oken addresss 0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C
 // UTRGOLD address  0xB6aF4d8C68eAC41260D3f7c7B9B8C1E1BF817ccf
-export const TOKEN_ADDRESS = "0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C";
+export const TOKEN_ADDRESS = "0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF";
 export const ERC20_ABI = erc20.abi;
 
 //ACCOUNT ADDRESS USED IN CREATING THE CONTRACTS
@@ -272,8 +273,9 @@ export const addTokenToMetaMask = async () => {
     const tokenSymbol = tokenDeatils?.symbol;
     //https://i.postimg.cc/SKLRxSPB/utrgold.png
     //https://i.postimg.cc/2SdhrqyS/inx-logotoken-removebg-preview.png
+    //https://i.postimg.cc/HLj8S4n9/utrcoin.png
     const tokenImage =
-      "https://i.postimg.cc/SKLRxSPB/utrgold.png";
+      "https://i.postimg.cc/HLj8S4n9/utrcoin.png";
 
     try {
       const wasAdded = await window.ethereum.request({

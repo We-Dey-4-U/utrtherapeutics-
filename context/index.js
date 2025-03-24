@@ -22,8 +22,8 @@ export const TOKEN_ICO_Context = React.createContext();
 
 export const TOKEN_ICO_Provider = ({ children }) => {
   const MUSIC_DAPP = "TOKEN ICO DAPP";
-  const currency = "MATIC";
-  const network = "Polygon Amoy";
+  const currency = "BNB";
+  const network = "bsc";
 
   const [loader, setLoader] = useState(false);
   const [account, setAccount] = useState();

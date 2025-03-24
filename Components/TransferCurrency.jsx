@@ -41,7 +41,7 @@ const transferCurrency = ({
         <div class="ico-contact__wrap">
           <h2 class="title ">
             Transfer {currency}{" "}
-            <strong onClick={() => setTransferCurrency(false)}>X</strong>
+            <strong onClick={() => setTransferCurrency(false)}></strong>
           </h2>
           <div>
             <div class="row">
