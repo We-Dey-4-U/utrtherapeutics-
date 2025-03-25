@@ -10,20 +10,30 @@ import erc20 from "./ERC20.json";
 //inx token address 0x45762e0070F9F18E78F57e859d020324c90f0F6C
 //utr oken addresss 0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C
 // UTRGOLD address  0xB6aF4d8C68eAC41260D3f7c7B9B8C1E1BF817ccf
-export const TOKEN_ADDRESS = "0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF";
+//0x1A5634880575738EA5fEEf590880d76508Dff225
+export const TOKEN_ADDRESS = "0x1A5634880575738EA5fEEf590880d76508Dff225";
 export const ERC20_ABI = erc20.abi;
 
 //ACCOUNT ADDRESS USED IN CREATING THE CONTRACTS
-export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
+//0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417
+//utrx 10mil token address 0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
+
+//token contract address and th account used
+// account address  0x5627e3921Cf8a49Da5De582077c5F1a315780564
+// token address 0x1A5634880575738EA5fEEf590880d76508Dff225
+//contract address  0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d
+export const OWNER_ADDRESS = "0x5627e3921Cf8a49Da5De582077c5F1a315780564";
 
 
-export const CONTRACT_ADDRESS = "0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032";
+// inix contract 0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032
+// no isssue contract   0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d
+export const CONTRACT_ADDRESS = "0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d";
 export const CONTRACT_ABI = tokenICO.abi;
 
 //NETWORK CONFIGURATION
 const networks = {
   polygon_amoy: {
-    chainId: `0x${Number(80002).toString(16)}`, // Converts 80002 to hex format
+    chainId: `0x${Number(80002).toString(16)}`, //Converts 80002 to hex format
     chainName: "Polygon Amoy", // Custom name for your network
     nativeCurrency: {
       name: "MATIC", // Standard name for Polygon's native currency

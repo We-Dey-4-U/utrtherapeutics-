@@ -66,6 +66,20 @@ contract TokenICO {
         );
     }
 
+
+     // ✅ Corrected and Completed transferToOwner Function
+    function transferToOwner(uint256 _amount) external onlyOwner {
+        require(address(this).balance >= _amount, "Insufficient contract balance");
+        payable(owner).transfer(_amount);
+    }
+
+   
+    function transferEther(address payable _receiver, uint256 _amount) external onlyOwner {
+    require(address(this).balance >= _amount, "Insufficient contract balance");
+    (bool success, ) = _receiver.call{value: _amount}("");
+    require(success, "Ether transfer failed");
+}
+
     function withdrawAllTokens() public onlyOwner {
         ERC20 token = ERC20(tokenAddress);
         uint256 balance = token.balanceOf(address(this));
