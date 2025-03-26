@@ -8,8 +8,9 @@ import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
 
 //minted token contract address
+// bnb mineted token contract  0x4bC081F0D8D79CB93ad98671DC4934C101BD6BcB
 //0x1A5634880575738EA5fEEf590880d76508Dff225
-export const TOKEN_ADDRESS = "0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF";
+export const TOKEN_ADDRESS = "0x4bC081F0D8D79CB93ad98671DC4934C101BD6BcB";
 export const ERC20_ABI = erc20.abi;
 
 //Account address use in deploying the contracts
@@ -21,7 +22,9 @@ export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
 //contrct adddress with max buy...0xDFd131De06f2631519A2158aD566B0c2182B9f7c
 /// max contact token address   0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
 // account addres owner  0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417
-export const CONTRACT_ADDRESS = "0xDFd131De06f2631519A2158aD566B0c2182B9f7c";
+
+//  bnb testnet network  0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032
+export const CONTRACT_ADDRESS = "0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032";
 export const CONTRACT_ABI = tokenICO.abi;
 
 //NETWORK CONFIGURATION
@@ -71,15 +74,21 @@ const networks = {
     blockExplorerUrls: ["https://bscscan.com"],
   },
   bscTestnet: {
-    chainId: `0x${Number(97).toString(16)}`, // Chain ID 97 in hex = "0x61"
+    chainId: `0x${Number(97).toString(16)}`, // Converts 97 to hex dynamically
     chainName: "Binance Smart Chain Testnet",
     nativeCurrency: {
-      name: "Binance Chain Native Token",
+      name: "BNB",
       symbol: "BNB",
       decimals: 18,
     },
-    rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"], // Testnet RPC
-    blockExplorerUrls: ["https://testnet.bscscan.com"], // Testnet Explorer
+    rpcUrls: [
+      "https://data-seed-prebsc-1-s1.binance.org:8545/",
+      "https://data-seed-prebsc-2-s1.binance.org:8545/",
+      "https://data-seed-prebsc-1-s2.binance.org:8545/",
+      "https://data-seed-prebsc-2-s2.binance.org:8545/",
+      "https://bsc-testnet.publicnode.com"
+    ],
+    blockExplorerUrls: ["https://testnet.bscscan.com/"], // Ensures consistency
   },
   base_mainnet: {
     chainId: `0x${Number(8453).toString(16)}`,
@@ -133,7 +142,7 @@ const changeNetwork = async ({ networkName }) => {
 };
 
 export const handleNetworkSwitch = async () => {
-  const networkName = "polygon_amoy";
+  const networkName = "bscTestnet";
   await changeNetwork({ networkName });
 };
 
