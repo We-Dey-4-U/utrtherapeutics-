@@ -6,28 +6,22 @@ import axios from "axios";
 //IMPORT CONTRACT ABI
 import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
-//utrx 10mil token address 0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
-//inx token address 0x45762e0070F9F18E78F57e859d020324c90f0F6C
-//utr oken addresss 0xf806Ba62558242Cb3e98dA7eeB3864CBe5B05B0C
-// UTRGOLD address  0xB6aF4d8C68eAC41260D3f7c7B9B8C1E1BF817ccf
+
+//minted token contract address
 //0x1A5634880575738EA5fEEf590880d76508Dff225
-export const TOKEN_ADDRESS = "0x1A5634880575738EA5fEEf590880d76508Dff225";
+export const TOKEN_ADDRESS = "0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF";
 export const ERC20_ABI = erc20.abi;
 
-//ACCOUNT ADDRESS USED IN CREATING THE CONTRACTS
-//0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417
-//utrx 10mil token address 0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
+//Account address use in deploying the contracts
+// 0x5627e3921Cf8a49Da5De582077c5F1a315780564
+//contrcat address for this account  0xb4E63682924f7Fb0a17Be3342d512f558aEAaDA1
+export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
 
-//token contract address and th account used
-// account address  0x5627e3921Cf8a49Da5De582077c5F1a315780564
-// token address 0x1A5634880575738EA5fEEf590880d76508Dff225
-//contract address  0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d
-export const OWNER_ADDRESS = "0x5627e3921Cf8a49Da5De582077c5F1a315780564";
-
-
-// inix contract 0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032
-// no isssue contract   0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d
-export const CONTRACT_ADDRESS = "0x300Ba75789659a52C3A7DC8Ce9569bf23f66087d";
+//ico contract address
+//contrct adddress with max buy...0xDFd131De06f2631519A2158aD566B0c2182B9f7c
+/// max contact token address   0xCbE4Ed2A09013421ff104F9484f59a3f9172afFF
+// account addres owner  0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417
+export const CONTRACT_ADDRESS = "0xDFd131De06f2631519A2158aD566B0c2182B9f7c";
 export const CONTRACT_ABI = tokenICO.abi;
 
 //NETWORK CONFIGURATION
@@ -69,7 +63,7 @@ const networks = {
     chainId: `0x${Number(56).toString(16)}`,
     chainName: "Binance Smart Chain Mainnet",
     nativeCurrency: {
-      name: "Binance Chain Native Token",
+      name: "BNB",
       symbol: "BNB",
       decimals: 18,
     },

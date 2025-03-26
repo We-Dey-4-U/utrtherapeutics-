@@ -45,9 +45,11 @@ const TokenInfo = ({ detail, currency }) => {
                   </span>
                 </li>
                 <li>
-                  <h4>Minimal Transaction</h4>
-                  <span>10 Tokens / Transaction</span>
-                </li>
+                 <h4>Transaction Limits</h4>
+                  <span>
+                    Min: 10 UTRx Tokens / Transaction<br />Max: 1,000,000 UTRx Tokens / Transaction
+                 </span>
+                </li>            
               </ul>
               <ul className="token-info__list token-info--end">
                 <li>

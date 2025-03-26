@@ -23,7 +23,7 @@ const Team = () => {
             </div>
             <div class="team__info text-center mb-20">
               <h3>Dr. Chidiebere Awah M.D, Ph.D</h3>
-              <span>Founder/Ceo</span>
+              <span>Founder/CEO</span>
             </div>
             <div class="team__social ul_li_center">
               <ul class="team__social-link link-left ul_li">

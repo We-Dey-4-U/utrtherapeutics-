@@ -57,19 +57,33 @@ const Hero = ({
     }
   }, [detail]);
 
+
+
   useEffect(() => {
     const calculatePercentage = () => {
       const tokenSold = detail?.soldTokens ?? 0;
-      const tokenTotalSupply = Number(detail?.tokenBal) || 1;
+      const tokenTotalSupply =
+        detail?.soldTokens + Number(detail?.tokenBal) * 1 ?? 1;
 
       const percentageNew = (tokenSold / tokenTotalSupply) * 100;
-      setPercentage(percentageNew);
+
+      if (tokenTotalSupply === 0) {
+        console.error(
+          "Token sale balance is zero, cannot calculate percentage."
+        );
+      } else {
+        setPercentage(percentageNew);
+      }
     };
 
-    if (detail) {
-      calculatePercentage();
-    }
-  }, [detail, icoId]);
+    const timer = setTimeout(calculatePercentage, 1000);
+
+    return () => clearTimeout(timer);
+  }, [detail]);
+
+
+
+  
 
   const connectWallet = async () => {
     setLoader(true);
@@ -138,7 +152,9 @@ const Hero = ({
                     <span>Raised -</span> {detail?.soldTokens} UTRx Tokens
                   </span>
                   <span>
-                    <span>Total ICO -</span> {Number(detail?.tokenBal)} {detail?.symbol}
+                    <span>Total ICO -</span>{" "}
+                    {detail?.soldTokens + Number(detail?.tokenBal)}{" "}
+                    {detail?.symbol}
                   </span>
                 </div>
                 <div

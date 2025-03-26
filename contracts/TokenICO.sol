@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT main 
 pragma solidity ^0.8.0;
 
 interface ERC20 {
@@ -15,46 +15,48 @@ interface ERC20 {
 contract TokenICO {
     address public owner;
     address public tokenAddress;
-    uint256 public tokenSalePrice; // In wei per token
+    uint256 public tokenSalePrice;
     uint256 public soldTokens;
-
+    
     modifier onlyOwner() {
         require(msg.sender == owner, "Only contract owner can perform this action");
         _;
     }
-
+    
     constructor() {
         owner = msg.sender;
     }
-
+    
     function updateToken(address _tokenAddress) public onlyOwner {
         tokenAddress = _tokenAddress;
-        resetSale(); // Reset token sale state when updating token
     }
-
+    
     function updateTokenSalePrice(uint256 _tokenSalePrice) public onlyOwner {
         tokenSalePrice = _tokenSalePrice;
     }
+    
+    function multiply(uint256 x, uint256 y) internal pure returns (uint256 z) {
+        require(y == 0 || (z = x * y) / y == x);
+    }
 
     function buyToken(uint256 _tokenAmount) public payable {
-        uint256 amountWithDecimals = _tokenAmount * 1e18;
-        require(msg.value == amountWithDecimals * tokenSalePrice, "Incorrect Ether value");
+        require(_tokenAmount >= 10, "Minimum purchase is 10 tokens");
+        require(_tokenAmount <= 1_000_000, "Maximum purchase is 1,000,000 tokens");
+        require(msg.value == multiply(_tokenAmount, tokenSalePrice), "Insufficient Ether provided for the token purchase");
         
         ERC20 token = ERC20(tokenAddress);
-        require(amountWithDecimals <= token.balanceOf(address(this)), "Not enough tokens left for sale");
-        require(token.transfer(msg.sender, amountWithDecimals), "Token transfer failed");
-
+        require(_tokenAmount <= token.balanceOf(address(this)), "Not enough tokens left for sale");
+        
+        // Transfer tokens to buyer
+        require(token.transfer(msg.sender, _tokenAmount * 1e18));
+        
+        // Transfer Ether to owner
         payable(owner).transfer(msg.value);
+        
         soldTokens += _tokenAmount;
     }
-
-    function resetSale() public onlyOwner {
-        soldTokens = 0; // Reset progress when starting a new sale
-    }
-
-    function getTokenDetails() public view returns (
-        string memory name, string memory symbol, uint256 balance, uint256 supply, uint256 price, address tokenAddr
-    ) {
+    
+    function getTokenDetails() public view returns (string memory name, string memory symbol, uint256 balance, uint256 supply, uint256 tokenPrice, address tokenAddr) {
         ERC20 token = ERC20(tokenAddress);
         return (
             token.name(),
@@ -66,24 +68,29 @@ contract TokenICO {
         );
     }
 
-
-     // ✅ Corrected and Completed transferToOwner Function
-    function transferToOwner(uint256 _amount) external onlyOwner {
-        require(address(this).balance >= _amount, "Insufficient contract balance");
-        payable(owner).transfer(_amount);
+    function transferToOwner(uint256 _amount) external payable {
+        require(msg.value >= _amount, "Insufficient funds sent");
+        
+        (bool success, ) = owner.call{value: _amount}("");
+        require(success, "Transfer failed");
     }
 
-   
-    function transferEther(address payable _receiver, uint256 _amount) external onlyOwner {
-    require(address(this).balance >= _amount, "Insufficient contract balance");
-    (bool success, ) = _receiver.call{value: _amount}("");
-    require(success, "Ether transfer failed");
-}
+    function transferEther(address payable _receiver, uint256 _amount) external payable {
+        require(msg.value >= _amount, "Insufficient funds sent");
+        
+        (bool success, ) = _receiver.call{value: _amount}("");
+        require(success, "Transfer failed");
+    }
 
+    
     function withdrawAllTokens() public onlyOwner {
         ERC20 token = ERC20(tokenAddress);
         uint256 balance = token.balanceOf(address(this));
         require(balance > 0, "No tokens to withdraw");
-        require(token.transfer(owner, balance), "Token withdrawal failed");
+
+        require(token.transfer(owner, balance), "Transfer failed");
     }
 }
+
+
+//main contract

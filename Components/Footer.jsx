@@ -67,7 +67,7 @@ const Footer = () => {
               </div>
               <span className="title">
               <IoCloudDownload />
-               Contact Form
+               White Paper
               </span>
                </a>
 
