@@ -53,7 +53,7 @@ const TokenInfo = ({ detail, currency }) => {
               </ul>
               <ul className="token-info__list token-info--end">
                 <li>
-                  <h4>Token Market Value</h4>
+                  <h4>Total Supply Token Market Value</h4>
                   <span>
                     {Number(detail?.supply) * Number(detail?.tokenPrice)} {currency}
                   </span>

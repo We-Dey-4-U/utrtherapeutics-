@@ -23,7 +23,7 @@ export const TOKEN_ICO_Context = React.createContext();
 export const TOKEN_ICO_Provider = ({ children }) => {
   const MUSIC_DAPP = "TOKEN ICO DAPP";
   const currency = "BNB";
-  const network = "bsc";
+  const network = "bsc testnet";
 
   const [loader, setLoader] = useState(false);
   const [account, setAccount] = useState();
@@ -76,10 +76,20 @@ export const TOKEN_ICO_Provider = ({ children }) => {
   const BUY_TOKEN = async (amount) => {
     try {
       setLoader(true);
+      // Validate the purchase amount
+    if (amount < 10) {
+      notifyError("Minimum purchase is 10 tokens");
+      setLoader(false);
+      return;
+    }
+    if (amount > 1_000_000) {
+      notifyError("Maximum purchase is 1,000,000 tokens");
+      setLoader(false);
+      return;
+    }
       const address = await CHECK_WALLET_CONNECTED();
       if (address) {
         const contract = await TOKEN_ICO_CONTRACT();
-
         const toeknDetails = await contract.getTokenDetails();
         const avalableToken = ethers.utils.formatEther(
           toeknDetails.balance.toString()
@@ -112,6 +122,9 @@ export const TOKEN_ICO_Provider = ({ children }) => {
       setLoader(false);
     }
   };
+
+
+
 
   //OWNER TOKEN WITHDRAW
   const TOKEN_WITHDRAW = async () => {

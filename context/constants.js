@@ -70,26 +70,24 @@ const networks = {
       symbol: "BNB",
       decimals: 18,
     },
-    rpcUrls: ["https://rpc.ankr.com/bsc"],
+    rpcUrls: [
+      "https://bsc-dataseed.binance.org"
+    ],
     blockExplorerUrls: ["https://bscscan.com"],
   },
   bscTestnet: {
-    chainId: `0x${Number(97).toString(16)}`, // Converts 97 to hex dynamically
-    chainName: "Binance Smart Chain Testnet",
+    chainId: `0x${Number(97).toString(16)}`,
+    chainName: "BSC Testnet",
     nativeCurrency: {
-      name: "BNB",
-      symbol: "BNB",
-      decimals: 18,
+      name: "Binance Testnet Token",
+      symbol: "tBNB",
+      decimals: 18
     },
     rpcUrls: [
-      "https://data-seed-prebsc-1-s1.binance.org:8545/",
-      "https://data-seed-prebsc-2-s1.binance.org:8545/",
-      "https://data-seed-prebsc-1-s2.binance.org:8545/",
-      "https://data-seed-prebsc-2-s2.binance.org:8545/",
-      "https://bsc-testnet.publicnode.com"
+      "https://data-seed-prebsc-1-s1.bnbchain.org:8545"
     ],
-    blockExplorerUrls: ["https://testnet.bscscan.com/"], // Ensures consistency
-  },
+    blockExplorerUrls: ["https://testnet.bscscan.com"]
+},
   base_mainnet: {
     chainId: `0x${Number(8453).toString(16)}`,
     chainName: "Base Mainnet",
