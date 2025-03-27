@@ -8,15 +8,16 @@ import tokenICO from "./TokenICO.json";
 import erc20 from "./ERC20.json";
 
 //minted token contract address
+//bnb mainet dployed token contract  0x07064E3D31f1E9747f9E2F064c0F8Ac94DCC6557
 // bnb mineted token contract  0x4bC081F0D8D79CB93ad98671DC4934C101BD6BcB
 //0x1A5634880575738EA5fEEf590880d76508Dff225
-export const TOKEN_ADDRESS = "0x4bC081F0D8D79CB93ad98671DC4934C101BD6BcB";
+export const TOKEN_ADDRESS = "0x07064E3D31f1E9747f9E2F064c0F8Ac94DCC6557";
 export const ERC20_ABI = erc20.abi;
 
 //Account address use in deploying the contracts
 // 0x5627e3921Cf8a49Da5De582077c5F1a315780564
 //contrcat address for this account  0xb4E63682924f7Fb0a17Be3342d512f558aEAaDA1
-export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
+export const OWNER_ADDRESS = "0xE7052FaB574e772A5B4d51E6E8A248Ad5FC0637f";
 
 //ico contract address
 //contrct adddress with max buy...0xDFd131De06f2631519A2158aD566B0c2182B9f7c
@@ -24,7 +25,8 @@ export const OWNER_ADDRESS = "0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417";
 // account addres owner  0x7Feea69C343A03f6a3A5Fe2910A01107D2E33417
 
 //  bnb testnet network  0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032
-export const CONTRACT_ADDRESS = "0x9696DE28c8dc69a73dF3ef736aF98CCc9E3cA032";
+//bnb mainet ico contract  0x4410032D28a61e5B995BCA785C0fb4279895fdeD
+export const CONTRACT_ADDRESS = "0x4410032D28a61e5B995BCA785C0fb4279895fdeD";
 export const CONTRACT_ABI = tokenICO.abi;
 
 //NETWORK CONFIGURATION
