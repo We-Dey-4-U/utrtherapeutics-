@@ -142,7 +142,7 @@ const changeNetwork = async ({ networkName }) => {
 };
 
 export const handleNetworkSwitch = async () => {
-  const networkName = "bscTestnet";
+  const networkName = "bsc";
   await changeNetwork({ networkName });
 };
 
