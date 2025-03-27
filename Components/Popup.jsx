@@ -31,6 +31,11 @@ const Popup = ({
           <h2 class="title ">
             Buy UTRx <strong onClick={() => setBuyModel(false)}>Token</strong>
           </h2>
+         {/* Informing the user about required BNB balance */}
+         <p style={{ fontSize: "14px", color: "white", marginBottom: "10px" }}>
+        ⚠️ Minimum purchase: **10 tokens**. You need **at least 0.04 BNB**,  
+         but **0.045 - 0.05 BNB** is recommended to cover gas fees.
+         </p>
           <div>
             <div class="row">
               <div class="col-lg-6">
