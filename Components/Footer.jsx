@@ -10,6 +10,7 @@ import {
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoCloudDownload } from "react-icons/io5";
 import { IoIosSend } from "react-icons/io";
+import { FaPhone, FaEnvelope } from "react-icons/fa"; // Add these for phone & email icons
 
 const Footer = () => {
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
@@ -95,6 +96,22 @@ const Footer = () => {
           </div>
         </div>
 
+
+
+        {/* Contact Info Section */}
+        <div className="footer__contact mt-20">
+  <p>
+    <FaPhone style={{ marginRight: "8px" }} />
+    +1 (347) 998-7066
+  </p>
+  <p>
+    <FaEnvelope style={{ marginRight: "8px" }} />
+    <a href="mailto:token@utrtherapeutics.com" style={{ color: "white" }}>
+      token@utrtherapeutics.com
+    </a>
+  </p>
+</div>
+
         <div className="footer__bottom ul_li_between mt-50">
           <div className="footer__logo mt-20">
             <a href="index.html">
@@ -171,4 +188,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default Footer

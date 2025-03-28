@@ -1,6 +1,8 @@
 import React from "react";
 import toast from "react-hot-toast";
 import { useForm, ValidationError } from "@formspree/react";
+import { FaPhone, FaEnvelope } from "react-icons/fa"; // Import icons
+
 
 const contact = () => {
   const notifySuccess = (msg) => toast.success(msg, { duration: 2000 });
@@ -17,6 +19,20 @@ const contact = () => {
       <div class="container">
         <div class="ico-contact__wrap">
           <h2 class="title">Contact UTRx Support</h2>
+
+          {/* Contact Details */}
+          <div className="contact-info text-center mb-4">
+            <p>
+              <FaPhone style={{ marginRight: "8px" }} />
+              +1 (347) 998-7066
+            </p>
+            <p>
+              <FaEnvelope style={{ marginRight: "8px" }} />
+              <a href="mailto:token@utrtherapeutics.com" style={{ color: "white" }}>
+                token@utrtherapeutics.com
+              </a>
+            </p>
+          </div>
           <form onSubmit={handleSubmit}>
             <div class="row">
               <div class="col-lg-6">
