@@ -22,7 +22,6 @@ contract TokenICO is ReentrancyGuard {
     address public tokenAddress;
     uint256 public tokenSalePrice;
     uint256 public soldTokens;
-    uint256 public priceBuffer = 0.001 ether; // Buffer range for gas fluctuations
 
     modifier onlyOwner() {
         require(msg.sender == owner, "Only contract owner can perform this action");
@@ -44,19 +43,14 @@ contract TokenICO is ReentrancyGuard {
     function buyToken(uint256 _tokenAmount) external payable nonReentrant {
         require(_tokenAmount >= 10, "Minimum purchase is 10 tokens");
         require(_tokenAmount <= 1_000_000, "Maximum purchase is 1,000,000 tokens");
-        uint256 requiredEther = _tokenAmount * tokenSalePrice;
-        require(
-            msg.value >= requiredEther - priceBuffer && msg.value <= requiredEther + priceBuffer,
-            "Ether amount not within acceptable range"
-        );
+        require(msg.value == _tokenAmount * tokenSalePrice, "Incorrect Ether sent");
 
         ERC20 token = ERC20(tokenAddress);
         uint256 contractBalance = token.balanceOf(address(this));
         require(_tokenAmount * 1e18 <= contractBalance, "Not enough tokens left for sale");
 
         require(token.transfer(msg.sender, _tokenAmount * 1e18), "Token transfer failed");
-        (bool success, ) = payable(owner).call{value: msg.value}("");
-        require(success, "Ether transfer failed");
+        payable(owner).sendValue(msg.value);
 
         soldTokens += _tokenAmount;
     }
@@ -82,14 +76,12 @@ contract TokenICO is ReentrancyGuard {
 
     function transferToOwner(uint256 _amount) external onlyOwner nonReentrant {
         require(address(this).balance >= _amount, "Insufficient contract balance");
-        (bool success, ) = payable(owner).call{value: _amount}("");
-        require(success, "Ether transfer failed");
+        payable(owner).sendValue(_amount);
     }
 
     function transferEther(address payable _receiver, uint256 _amount) external onlyOwner nonReentrant {
         require(address(this).balance >= _amount, "Insufficient contract balance");
-        (bool success, ) = _receiver.call{value: _amount}("");
-        require(success, "Ether transfer failed");
+        _receiver.sendValue(_amount);
     }
 
     function withdrawAllTokens() external onlyOwner nonReentrant {
@@ -99,3 +91,7 @@ contract TokenICO is ReentrancyGuard {
         require(token.transfer(owner, balance), "Transfer failed");
     }
 }
+
+
+
+//main contract for fees reduction

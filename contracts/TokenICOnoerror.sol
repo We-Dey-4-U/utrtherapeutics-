@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
 interface ERC20 {
     function transfer(address recipient, uint256 amount) external returns (bool);
     function balanceOf(address account) external view returns (uint256);
@@ -13,51 +15,43 @@ interface ERC20 {
     function decimals() external view returns (uint8);
 }
 
-contract TokenICO {
+contract TokenICO is ReentrancyGuard {
     address public owner;
     address public tokenAddress;
     uint256 public tokenSalePrice;
     uint256 public soldTokens;
 
-    // ✅ Added min & max purchase limits
-     bool public isSaleActive = true;
-    uint256 public minPurchase = 10 * 10**18; // Minimum 100 tokens
-    uint256 public maxPurchase = 1_000_000 * 10**18; // Maximum 1,000,000 tokens
-    mapping(address => uint256) public userPurchases; // Track user purchases
-   
-
-   //A modifier to restrict certain functions to the contract owner.
+    bool public isSaleActive = true;
+    uint256 public minPurchase = 10 * 10**18;
+    uint256 public maxPurchase = 1_000_000 * 10**18;
+    mapping(address => uint256) public userPurchases;
+    
     modifier onlyOwner() {
         require(msg.sender == owner, "Only contract owner can perform this action");
         _;
     }
-    //The constructor sets the deployer of the contract as the owner.
+
     constructor() {
         owner = msg.sender;
     }
 
     function resetSale() public onlyOwner {
-        soldTokens = 0;        // Reset sold token count
-        tokenSalePrice = 0;      // Reset token price
-        tokenAddress = address(0);     // Clear token reference
+        soldTokens = 0;
+        tokenSalePrice = 0;
+        tokenAddress = address(0);
     }
 
-    //Allows the owner to set the ERC-20 token being sold.
     function updateToken(address _tokenAddress) public onlyOwner {
         require(_tokenAddress != address(0), "Invalid token address");
-        resetSale(); // Clear previous sale data
-        // Set new token address
+        resetSale();
         tokenAddress = _tokenAddress;
     }
 
-     //Sets the price of one token in BNB.
     function updateTokenSalePrice(uint256 _tokenSalePrice) public onlyOwner {
         require(_tokenSalePrice > 0, "Token sale price must be greater than zero");
         tokenSalePrice = _tokenSalePrice;
     }
 
-    // ✅ Owner can update purchase limits
-    //Allows the owner to adjust purchase limits.
     function updateMinPurchase(uint256 _min) public onlyOwner {
         require(_min > 0, "Minimum must be greater than zero");
         minPurchase = _min;
@@ -67,17 +61,8 @@ contract TokenICO {
         require(_max > minPurchase, "Max must be greater than min");
         maxPurchase = _max;
     }
-      //A safe multiplication function to prevent overflow errors.
-    function multiply(uint256 x, uint256 y) internal pure returns (uint256 z) {
-        require(y == 0 || (z = x * y) / y == x, "Multiplication overflow");
-    }
-      //Enables or disables the token sale.
 
-   // Ensures the token sale is active.
-    //Ensures a valid token address is set.
-    //Ensures the user is buying more than 0 tokens.
-    //Ensures the correct amount of BNB is sent.
-     function buyToken(uint256 _tokenAmount) public payable {
+    function buyToken(uint256 _tokenAmount) public payable nonReentrant {
         require(tokenAddress != address(0), "Token address not set");
         require(_tokenAmount > 0, "Token amount must be greater than zero");
 
@@ -92,15 +77,11 @@ contract TokenICO {
         require(userPurchases[msg.sender] + scaledAmount <= maxPurchase, "Purchase exceeds maximum limit");
         require(scaledAmount <= token.balanceOf(address(this)), "Not enough tokens left for sale");
 
-        // ✅ Update state before transferring tokens
         userPurchases[msg.sender] += scaledAmount;
         soldTokens += _tokenAmount;
 
-        
-         // Transfer tokens to buyer
         require(token.transfer(msg.sender, scaledAmount), "Token transfer failed");
 
-        // ✅ Use call() for better gas handling and prevent reentrancy
         (bool success, ) = payable(owner).call{value: msg.value}("");
         require(success, "BNB transfer failed");
     }
@@ -124,17 +105,17 @@ contract TokenICO {
         );
     }
 
+    function transferToOwner() external onlyOwner {
+        uint256 contractBalance = address(this).balance;
+        require(contractBalance > 0, "No BNB to transfer");
 
-    function transferToOwner(uint256 _amount) external payable {
-        require(msg.value >= _amount, "Insufficient funds sent");
-        
-        (bool success, ) = owner.call{value: _amount}("");
+        (bool success, ) = owner.call{value: contractBalance}("");
         require(success, "Transfer failed");
     }
 
-    function transferEther(address payable _receiver, uint256 _amount) external payable {
-        require(msg.value >= _amount, "Insufficient funds sent");
-        
+    function transferEther(address payable _receiver, uint256 _amount) external onlyOwner {
+        require(_amount > 0 && _amount <= address(this).balance, "Invalid amount");
+
         (bool success, ) = _receiver.call{value: _amount}("");
         require(success, "Transfer failed");
     }

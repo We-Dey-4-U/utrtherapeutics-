@@ -33,6 +33,8 @@ const contact = () => {
               </a>
             </p>
           </div>
+
+          
           <form onSubmit={handleSubmit}>
             <div class="row">
               <div class="col-lg-6">

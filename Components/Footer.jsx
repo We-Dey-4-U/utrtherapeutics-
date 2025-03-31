@@ -62,7 +62,7 @@ const Footer = () => {
             <div className="footer__widget text-lg-end">
               <h2>Download Documents</h2>
               <div className="footer__document ul_li_right">
-              <a href="/assets/doc/Contact%20Form.pdf" download="Contact Form.pdf" className="footer__document-item text-center">
+              <a href="/assets/doc/utrxwhitepaper.pdf" download="utrxwhitepaper.pdf" className="footer__document-item text-center">
                <div className="icon">
                <img src="/assets/img/icon/pdf.svg" alt="PDF Icon" />
               </div>
@@ -99,17 +99,20 @@ const Footer = () => {
 
 
         {/* Contact Info Section */}
-        <div className="footer__contact mt-20">
-  <p>
-    <FaPhone style={{ marginRight: "8px" }} />
-    +1 (347) 998-7066
-  </p>
-  <p>
-    <FaEnvelope style={{ marginRight: "8px" }} />
-    <a href="mailto:token@utrtherapeutics.com" style={{ color: "white" }}>
+        <div className="footer__contact mt-20 flex flex-col space-y-2 text-white">
+  <div className="flex items-center">
+    <FaPhone className="mr-2 text-lg" />
+    <span className="text-sm md:text-base">+1 (347) 998-7066</span>
+  </div>
+  <div className="flex items-center">
+    <FaEnvelope className="mr-2 text-lg" />
+    <a 
+      href="mailto:token@utrtherapeutics.com" 
+      className="text-sm md:text-base hover:underline"
+    >
       token@utrtherapeutics.com
     </a>
-  </p>
+  </div>
 </div>
 
         <div className="footer__bottom ul_li_between mt-50">
