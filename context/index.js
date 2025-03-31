@@ -75,53 +75,63 @@ export const TOKEN_ICO_Provider = ({ children }) => {
   //BUY TOKEN
   const BUY_TOKEN = async (amount) => {
     try {
-      setLoader(true);
-      // Validate the purchase amount
-    if (amount < 10) {
-      notifyError("Minimum purchase is 10 tokens");
-      setLoader(false);
-      return;
-    }
-    if (amount > 1_000_000) {
-      notifyError("Maximum purchase is 1,000,000 tokens");
-      setLoader(false);
-      return;
-    }
-      const address = await CHECK_WALLET_CONNECTED();
-      if (address) {
-        const contract = await TOKEN_ICO_CONTRACT();
-        const toeknDetails = await contract.getTokenDetails();
-        const avalableToken = ethers.utils.formatEther(
-          toeknDetails.balance.toString()
-        );
+        setLoader(true);
 
-        if (avalableToken > 1) {
-          const price =
-            ethers.utils.formatEther(toeknDetails.tokenPrice.toString()) *
-            Number(amount);
-
-          const payAmount = ethers.utils.parseUnits(price.toString(), "ether");
-
-          console.log(payAmount);
-
-          const transaction = await contract.buyToken(Number(amount), {
-            value: payAmount.toString(),
-            gasLimit: ethers.utils.hexlify(8000000),
-          });
-
-          await transaction.wait();
-          setLoader(false);
-          notifySuccess("Transaction successfully");
-          console.log(transaction);
-          window.location.reload();
+        // Validate the purchase amount
+        if (amount < 10) {
+            notifyError("Minimum purchase is 10 tokens");
+            setLoader(false);
+            return;
         }
-      }
+        if (amount > 1_000_000) {
+            notifyError("Maximum purchase is 1,000,000 tokens");
+            setLoader(false);
+            return;
+        }
+
+        const address = await CHECK_WALLET_CONNECTED();
+        if (address) {
+            const contract = await TOKEN_ICO_CONTRACT();
+            const tokenDetails = await contract.getTokenDetails();
+
+            const availableToken = ethers.utils.formatEther(tokenDetails.balance.toString());
+            if (availableToken > 1) {
+                const tokenPrice = ethers.utils.formatEther(tokenDetails.tokenPrice.toString());
+                const price = ethers.utils.parseEther((tokenPrice * Number(amount)).toString());
+
+                console.log("Paying:", price.toString());
+
+                // Estimate Gas Limit
+                let gasLimit;
+                try {
+                    gasLimit = await contract.estimateGas.buyToken(Number(amount), { value: price });
+                } catch (error) {
+                    console.error("Gas estimation failed, using fallback limit:", error);
+                    gasLimit = ethers.BigNumber.from("300000"); // Fallback gas limit
+                }
+
+                // Get current gas price
+                const gasPrice = await contract.provider.getGasPrice();
+
+                const transaction = await contract.buyToken(Number(amount), {
+                    value: price,
+                    gasLimit: gasLimit.mul(120).div(100), // Increase estimated gas by 20%
+                    gasPrice: gasPrice,
+                });
+
+                await transaction.wait();
+                setLoader(false);
+                notifySuccess("Transaction successful");
+                console.log(transaction);
+                window.location.reload();
+            }
+        }
     } catch (error) {
-      console.log(error);
-      notifyError("error try again later");
-      setLoader(false);
+        console.error(error);
+        notifyError("Error: try again later");
+        setLoader(false);
     }
-  };
+};
 
 
 
